@@ -56,6 +56,25 @@
         .btn-outline-primary { border:2px solid var(--primary); color:var(--primary); padding:10px 24px; border-radius:12px; font-weight:600; background:transparent; }
         .btn-outline-primary:hover { background:var(--primary); color:#fff; }
 
+        /* Demo Categories */
+        .demo-section { padding:80px 0; background:var(--bg-alt); }
+        .demo-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:20px; }
+        .demo-card {
+            background:var(--bg); border:1px solid var(--border); border-radius:18px; padding:20px;
+            box-shadow:0 10px 30px rgba(15,23,42,0.06); transition:transform 0.2s, box-shadow 0.2s;
+            display:flex; flex-direction:column; gap:12px; min-height:210px;
+        }
+        .demo-card:hover { transform:translateY(-4px); box-shadow:0 18px 40px rgba(15,23,42,0.12); }
+        .demo-icon {
+            width:48px; height:48px; border-radius:14px; background:var(--primary-accent);
+            display:flex; align-items:center; justify-content:center; color:var(--primary);
+            font-size:20px;
+        }
+        .demo-card h4 { font-size:18px; font-weight:700; color:var(--dark); margin:0; }
+        .demo-card p { margin:0; color:var(--text-muted); font-size:13px; line-height:1.7; }
+        .demo-meta { display:flex; align-items:center; gap:8px; margin-top:auto; font-size:12px; color:var(--text-muted); }
+        .demo-meta span { background:rgba(124,58,237,0.08); color:var(--primary); padding:4px 10px; border-radius:999px; font-weight:600; }
+
         @media (max-width:768px) {
             .site-nav .nav-links { gap:12px; font-size:13px; }
         }
@@ -101,6 +120,66 @@
             </div>
         </div>
     </nav>
+
+    {{-- Demo Categories --}}
+    <section class="demo-section" id="demos">
+        <div class="container">
+            <div class="section-title">
+                <h2>ديموهات جاهزة لمواقع اللاندق بيج</h2>
+                <p>اختر قالباً مناسباً لنوع مشروعك، وابدأ بتخصيص المحتوى والألوان خلال دقائق.</p>
+            </div>
+            <div class="demo-grid">
+                <div class="demo-card">
+                    <div class="demo-icon"><i class="fas fa-laptop-code"></i></div>
+                    <h4>تطبيقات SaaS</h4>
+                    <p>صفحات مهيأة لشرح المزايا، التسعير، وتجارب العملاء بوضوح.</p>
+                    <div class="demo-meta"><span>تقني</span><span>اشتراكات</span></div>
+                </div>
+                <div class="demo-card">
+                    <div class="demo-icon"><i class="fas fa-store"></i></div>
+                    <h4>متجر إلكتروني</h4>
+                    <p>عرض منتجاتك بشكل جذاب مع CTA واضح وتجربة شراء مبسطة.</p>
+                    <div class="demo-meta"><span>تجارة</span><span>منتجات</span></div>
+                </div>
+                <div class="demo-card">
+                    <div class="demo-icon"><i class="fas fa-mobile-alt"></i></div>
+                    <h4>تطبيق جوال</h4>
+                    <p>قسم مخصص للمزايا والتنزيل مع إبراز لقطات الشاشة والتقييمات.</p>
+                    <div class="demo-meta"><span>موبايل</span><span>تحميل</span></div>
+                </div>
+                <div class="demo-card">
+                    <div class="demo-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <h4>دورات وتعليم</h4>
+                    <p>صفحات تسجيل للدورات، البرامج التدريبية، والورش الاحترافية.</p>
+                    <div class="demo-meta"><span>تعليمي</span><span>تسجيل</span></div>
+                </div>
+                <div class="demo-card">
+                    <div class="demo-icon"><i class="fas fa-utensils"></i></div>
+                    <h4>مطاعم ومقاهي</h4>
+                    <p>عرض قوائم الطعام والحجوزات والعروض الموسمية بسهولة.</p>
+                    <div class="demo-meta"><span>ضيافة</span><span>حجز</span></div>
+                </div>
+                <div class="demo-card">
+                    <div class="demo-icon"><i class="fas fa-calendar-check"></i></div>
+                    <h4>فعاليات ومؤتمرات</h4>
+                    <p>ترويج الحدث، جدول المتحدثين، وحجوزات التذاكر.</p>
+                    <div class="demo-meta"><span>حدث</span><span>تذاكر</span></div>
+                </div>
+                <div class="demo-card">
+                    <div class="demo-icon"><i class="fas fa-briefcase"></i></div>
+                    <h4>خدمات الشركات</h4>
+                    <p>قوالب مناسبة لوكالات التسويق، الاستشارات، والخدمات المهنية.</p>
+                    <div class="demo-meta"><span>أعمال</span><span>عملاء</span></div>
+                </div>
+                <div class="demo-card">
+                    <div class="demo-icon"><i class="fas fa-building"></i></div>
+                    <h4>عقارات</h4>
+                    <p>صفحات تسويق للمشاريع والوحدات مع نماذج تواصل سريعة.</p>
+                    <div class="demo-meta"><span>عقاري</span><span>نماذج</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     {{-- Sections --}}
     @foreach($sections as $sectionIndex => $section)
