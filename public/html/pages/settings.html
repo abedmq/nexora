@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexora - Settings</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/plugins/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../assets/plugins/toastr/css/toastr.min.css">
+    <link rel="stylesheet" href="../assets/plugins/sweetalert2/css/sweetalert2.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
+</head>
+<body>
+
+<div id="preloader"><div class="preloader-spinner"></div></div>
+<div class="sidebar-overlay"></div>
+
+<!-- SIDEBAR -->
+<aside class="nx-sidebar">
+    <div class="sidebar-header">
+        <a href="../index.html" class="sidebar-logo"><span class="logo-icon"><i class="fas fa-bolt"></i></span><span>Nexora</span></a>
+        <button class="sidebar-close"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="sidebar-search"><div class="position-relative"><i class="fas fa-search search-icon"></i><input type="text" class="form-control" placeholder="Search menu..."></div></div>
+    <nav class="sidebar-menu">
+        <ul class="list-unstyled">
+            <li class="menu-label">Main</li>
+            <li class="menu-item"><a href="../index.html" class="menu-link"><span class="menu-icon"><i class="fas fa-home"></i></span><span>Dashboard</span></a></li>
+            <li class="menu-label">Apps</li>
+            <li class="menu-item"><a href="tables.html" class="menu-link"><span class="menu-icon"><i class="fas fa-table"></i></span><span>Tables</span></a></li>
+            <li class="menu-item"><a href="forms.html" class="menu-link"><span class="menu-icon"><i class="fas fa-edit"></i></span><span>Forms</span></a></li>
+            <li class="menu-item"><a href="charts.html" class="menu-link"><span class="menu-icon"><i class="fas fa-chart-bar"></i></span><span>Charts</span></a></li>
+            <li class="menu-label">Management</li>
+            <li class="menu-item"><a href="users.html" class="menu-link"><span class="menu-icon"><i class="fas fa-users"></i></span><span>Users</span></a></li>
+            <li class="menu-item">
+                <a href="#pagesSubmenu" class="menu-link" data-bs-toggle="collapse" aria-expanded="true"><span class="menu-icon"><i class="fas fa-file"></i></span><span>Pages</span><span class="menu-arrow"><i class="fas fa-chevron-right"></i></span></a>
+                <ul id="pagesSubmenu" class="submenu collapse show list-unstyled">
+                    <li class="menu-item"><a href="profile.html" class="menu-link">Profile</a></li>
+                    <li class="menu-item"><a href="settings.html" class="menu-link active">Settings</a></li>
+                </ul>
+            </li>
+            <li class="menu-label">Authentication</li>
+            <li class="menu-item">
+                <a href="#authSubmenu" class="menu-link" data-bs-toggle="collapse" aria-expanded="false"><span class="menu-icon"><i class="fas fa-lock"></i></span><span>Auth</span><span class="menu-arrow"><i class="fas fa-chevron-right"></i></span></a>
+                <ul id="authSubmenu" class="submenu collapse list-unstyled">
+                    <li class="menu-item"><a href="../auth/login.html" class="menu-link">Login</a></li>
+                    <li class="menu-item"><a href="../auth/register.html" class="menu-link">Register</a></li>
+                    <li class="menu-item"><a href="../auth/forgot-password.html" class="menu-link">Forgot Password</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <div class="sidebar-footer">
+        <div class="user-info">
+            <img src="https://ui-avatars.com/api/?name=Admin+User&background=7c3aed&color=fff&rounded=true&size=38" alt="User" class="user-avatar">
+            <div><div class="user-name">Admin User</div><div class="user-role">Administrator</div></div>
+        </div>
+    </div>
+</aside>
+
+<!-- MAIN -->
+<main class="nx-main">
+    <nav class="nx-navbar">
+        <div class="navbar-left">
+            <button class="sidebar-toggle"><i class="fas fa-bars"></i></button>
+            <h4 class="page-title mb-0 d-none d-md-block">Settings</h4>
+        </div>
+        <div class="navbar-right">
+            <div class="dropdown">
+                <div class="user-dropdown" data-bs-toggle="dropdown">
+                    <img src="https://ui-avatars.com/api/?name=Admin+User&background=7c3aed&color=fff&rounded=true&size=36" alt="User">
+                    <div class="user-info-text d-none d-md-block"><div class="user-name">Admin User</div><div class="user-role">Administrator</div></div>
+                </div>
+                <div class="dropdown-menu dropdown-menu-end">
+                    <a href="profile.html" class="dropdown-item"><i class="fas fa-user text-purple"></i> My Profile</a>
+                    <a href="settings.html" class="dropdown-item"><i class="fas fa-cog text-purple"></i> Settings</a>
+                    <div class="dropdown-divider"></div>
+                    <a href="../auth/login.html" class="dropdown-item text-danger"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="nx-content">
+        <div class="nx-breadcrumb">
+            <a href="../index.html"><i class="fas fa-home"></i></a>
+            <span class="separator"><i class="fas fa-chevron-right"></i></span>
+            <a href="#">Pages</a>
+            <span class="separator"><i class="fas fa-chevron-right"></i></span>
+            <span>Settings</span>
+        </div>
+
+        <!-- Settings Tabs -->
+        <div class="row g-3">
+            <div class="col-lg-3">
+                <div class="nx-card">
+                    <div class="card-body p-2">
+                        <nav class="nav flex-column">
+                            <a class="nav-link active d-flex align-items-center gap-2 px-3 py-2 rounded" data-bs-toggle="tab" href="#generalSettings" style="font-size:13px;">
+                                <i class="fas fa-cog text-purple"></i> General
+                            </a>
+                            <a class="nav-link d-flex align-items-center gap-2 px-3 py-2 rounded" data-bs-toggle="tab" href="#notificationSettings" style="font-size:13px;">
+                                <i class="fas fa-bell text-purple"></i> Notifications
+                            </a>
+                            <a class="nav-link d-flex align-items-center gap-2 px-3 py-2 rounded" data-bs-toggle="tab" href="#securitySettings" style="font-size:13px;">
+                                <i class="fas fa-shield-alt text-purple"></i> Security
+                            </a>
+                            <a class="nav-link d-flex align-items-center gap-2 px-3 py-2 rounded" data-bs-toggle="tab" href="#dangerZone" style="font-size:13px;">
+                                <i class="fas fa-exclamation-triangle text-danger"></i> Danger Zone
+                            </a>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-9">
+                <div class="tab-content">
+                    <!-- General Settings -->
+                    <div class="tab-pane fade show active" id="generalSettings">
+                        <div class="nx-card">
+                            <div class="card-header"><h5 class="card-title">General Settings</h5></div>
+                            <div class="card-body">
+                                <form class="nx-form">
+                                    <div class="row g-3">
+                                        <div class="col-md-6">
+                                            <label class="form-label">Site Name</label>
+                                            <input type="text" class="form-control" value="Nexora Dashboard">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">Site URL</label>
+                                            <input type="url" class="form-control" value="https://nexora.example.com">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">Language</label>
+                                            <select class="form-select">
+                                                <option selected>English</option>
+                                                <option>Arabic</option>
+                                                <option>French</option>
+                                                <option>Spanish</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">Timezone</label>
+                                            <select class="form-select">
+                                                <option>UTC-8 (Pacific)</option>
+                                                <option selected>UTC-5 (Eastern)</option>
+                                                <option>UTC+0 (GMT)</option>
+                                                <option>UTC+3 (Arabia)</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-12">
+                                            <label class="form-label">Site Description</label>
+                                            <textarea class="form-control" rows="3">Nexora is a modern admin dashboard built with Bootstrap 5 and jQuery plugins.</textarea>
+                                        </div>
+                                        <div class="col-12">
+                                            <button type="button" class="btn btn-nx-primary btn-save-settings">
+                                                <i class="fas fa-save me-1"></i> Save Settings
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Notification Settings -->
+                    <div class="tab-pane fade" id="notificationSettings">
+                        <div class="nx-card">
+                            <div class="card-header"><h5 class="card-title">Notification Preferences</h5></div>
+                            <div class="card-body">
+                                <form class="nx-form">
+                                    <h6 class="fw-semibold mb-3">Email Notifications</h6>
+                                    <div class="d-flex align-items-center justify-content-between mb-3 pb-3 border-bottom">
+                                        <div>
+                                            <div class="fw-semibold" style="font-size:13px;">New user registration</div>
+                                            <small class="text-muted">Get notified when a new user signs up</small>
+                                        </div>
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" checked>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-between mb-3 pb-3 border-bottom">
+                                        <div>
+                                            <div class="fw-semibold" style="font-size:13px;">Order updates</div>
+                                            <small class="text-muted">Receive emails for order status changes</small>
+                                        </div>
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" checked>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-between mb-3 pb-3 border-bottom">
+                                        <div>
+                                            <div class="fw-semibold" style="font-size:13px;">System alerts</div>
+                                            <small class="text-muted">Critical system notifications and warnings</small>
+                                        </div>
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" checked>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-between mb-3 pb-3 border-bottom">
+                                        <div>
+                                            <div class="fw-semibold" style="font-size:13px;">Marketing emails</div>
+                                            <small class="text-muted">Promotions and newsletter</small>
+                                        </div>
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox">
+                                        </div>
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-between mb-4">
+                                        <div>
+                                            <div class="fw-semibold" style="font-size:13px;">Weekly reports</div>
+                                            <small class="text-muted">Summary of weekly analytics</small>
+                                        </div>
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" checked>
+                                        </div>
+                                    </div>
+                                    <button type="button" class="btn btn-nx-primary btn-save-settings">
+                                        <i class="fas fa-save me-1"></i> Save Preferences
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Security Settings -->
+                    <div class="tab-pane fade" id="securitySettings">
+                        <div class="nx-card mb-3">
+                            <div class="card-header"><h5 class="card-title">Security Settings</h5></div>
+                            <div class="card-body">
+                                <form class="nx-form">
+                                    <div class="d-flex align-items-center justify-content-between mb-3 pb-3 border-bottom">
+                                        <div>
+                                            <div class="fw-semibold" style="font-size:13px;">Two-Factor Authentication</div>
+                                            <small class="text-muted">Add an extra layer of security to your account</small>
+                                        </div>
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox">
+                                        </div>
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-between mb-3 pb-3 border-bottom">
+                                        <div>
+                                            <div class="fw-semibold" style="font-size:13px;">Login alerts</div>
+                                            <small class="text-muted">Get notified on new device logins</small>
+                                        </div>
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" checked>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Session Timeout (minutes)</label>
+                                        <input type="number" class="form-control" value="30" style="max-width:200px;">
+                                    </div>
+                                    <button type="button" class="btn btn-nx-primary btn-save-settings">
+                                        <i class="fas fa-save me-1"></i> Save Security Settings
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="nx-card">
+                            <div class="card-header"><h5 class="card-title">Active Sessions</h5></div>
+                            <div class="card-body p-0">
+                                <div class="table-responsive">
+                                    <table class="table nx-table mb-0">
+                                        <thead>
+                                            <tr><th>Device</th><th>IP Address</th><th>Location</th><th>Last Active</th><th></th></tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><i class="fas fa-desktop text-purple me-2"></i> Windows PC - Chrome</td>
+                                                <td>192.168.1.100</td>
+                                                <td>San Francisco, CA</td>
+                                                <td><span class="nx-badge success">Current Session</span></td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td><i class="fas fa-mobile-alt text-purple me-2"></i> iPhone - Safari</td>
+                                                <td>192.168.1.105</td>
+                                                <td>San Francisco, CA</td>
+                                                <td class="text-muted">2 hours ago</td>
+                                                <td><button class="btn btn-sm btn-outline-danger btn-revoke">Revoke</button></td>
+                                            </tr>
+                                            <tr>
+                                                <td><i class="fas fa-laptop text-purple me-2"></i> MacBook - Firefox</td>
+                                                <td>10.0.0.50</td>
+                                                <td>New York, NY</td>
+                                                <td class="text-muted">1 day ago</td>
+                                                <td><button class="btn btn-sm btn-outline-danger btn-revoke">Revoke</button></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Danger Zone -->
+                    <div class="tab-pane fade" id="dangerZone">
+                        <div class="nx-card" style="border-color: var(--nx-danger);">
+                            <div class="card-header" style="border-bottom-color: var(--nx-danger-light);">
+                                <h5 class="card-title text-danger"><i class="fas fa-exclamation-triangle me-2"></i>Danger Zone</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="d-flex align-items-center justify-content-between mb-3 pb-3 border-bottom">
+                                    <div>
+                                        <div class="fw-semibold" style="font-size:13px;">Export Account Data</div>
+                                        <small class="text-muted">Download all your data in JSON format</small>
+                                    </div>
+                                    <button type="button" class="btn btn-nx-outline btn-sm">Export Data</button>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <div>
+                                        <div class="fw-semibold text-danger" style="font-size:13px;">Delete Account</div>
+                                        <small class="text-muted">Permanently delete your account and all associated data</small>
+                                    </div>
+                                    <button type="button" class="btn btn-outline-danger btn-sm" id="deleteAccountBtn">
+                                        <i class="fas fa-trash-alt me-1"></i> Delete Account
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="nx-footer">
+        <span>&copy; 2026 <a href="#">Nexora</a>. All rights reserved.</span>
+        <span>Crafted with <i class="fas fa-heart text-danger"></i></span>
+    </footer>
+</main>
+
+<script src="../assets/plugins/jquery/jquery.min.js"></script>
+<script src="../assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/plugins/toastr/js/toastr.min.js"></script>
+<script src="../assets/plugins/sweetalert2/js/sweetalert2.min.js"></script>
+<script src="../assets/js/main.js"></script>
+<script>
+    $(document).ready(function () {
+        // Save settings buttons
+        $('.btn-save-settings').on('click', function () {
+            toastr.success('Settings saved successfully!', 'Success');
+        });
+
+        // Revoke session
+        $('.btn-revoke').on('click', function () {
+            var $btn = $(this);
+            Swal.fire({
+                title: 'Revoke Session?',
+                text: 'This will log out this device immediately.',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#ef4444',
+                confirmButtonText: 'Yes, revoke it'
+            }).then(function (result) {
+                if (result.isConfirmed) {
+                    $btn.closest('tr').fadeOut(300, function () { $(this).remove(); });
+                    toastr.success('Session revoked successfully.', 'Done');
+                }
+            });
+        });
+
+        // Delete account
+        $('#deleteAccountBtn').on('click', function () {
+            Swal.fire({
+                title: 'Delete Account?',
+                html: 'This action is <strong>permanent</strong> and cannot be undone. All your data will be lost.',
+                icon: 'error',
+                showCancelButton: true,
+                confirmButtonColor: '#ef4444',
+                confirmButtonText: '<i class="fas fa-trash-alt me-1"></i> Yes, delete my account',
+                cancelButtonText: 'Keep my account',
+                input: 'text',
+                inputPlaceholder: 'Type "DELETE" to confirm',
+                inputValidator: function (value) {
+                    if (value !== 'DELETE') {
+                        return 'Please type DELETE to confirm';
+                    }
+                }
+            }).then(function (result) {
+                if (result.isConfirmed) {
+                    toastr.error('Account deletion requested. (Demo only)', 'Account');
+                }
+            });
+        });
+
+        // Settings vertical nav active state
+        $('#generalSettings, #notificationSettings, #securitySettings, #dangerZone').parent().find('.nav-link').on('click', function () {
+            $(this).closest('.nav').find('.nav-link').removeClass('active');
+            $(this).addClass('active');
+        });
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexora - Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/plugins/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../assets/plugins/dropzone/css/dropzone.min.css">
+    <link rel="stylesheet" href="../assets/plugins/toastr/css/toastr.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
+</head>
+<body>
+
+<div id="preloader"><div class="preloader-spinner"></div></div>
+<div class="sidebar-overlay"></div>
+
+<!-- SIDEBAR -->
+<aside class="nx-sidebar">
+    <div class="sidebar-header">
+        <a href="../index.html" class="sidebar-logo"><span class="logo-icon"><i class="fas fa-bolt"></i></span><span>Nexora</span></a>
+        <button class="sidebar-close"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="sidebar-search"><div class="position-relative"><i class="fas fa-search search-icon"></i><input type="text" class="form-control" placeholder="Search menu..."></div></div>
+    <nav class="sidebar-menu">
+        <ul class="list-unstyled">
+            <li class="menu-label">Main</li>
+            <li class="menu-item"><a href="../index.html" class="menu-link"><span class="menu-icon"><i class="fas fa-home"></i></span><span>Dashboard</span></a></li>
+            <li class="menu-label">Apps</li>
+            <li class="menu-item"><a href="tables.html" class="menu-link"><span class="menu-icon"><i class="fas fa-table"></i></span><span>Tables</span></a></li>
+            <li class="menu-item"><a href="forms.html" class="menu-link"><span class="menu-icon"><i class="fas fa-edit"></i></span><span>Forms</span></a></li>
+            <li class="menu-item"><a href="charts.html" class="menu-link"><span class="menu-icon"><i class="fas fa-chart-bar"></i></span><span>Charts</span></a></li>
+            <li class="menu-label">Management</li>
+            <li class="menu-item"><a href="users.html" class="menu-link"><span class="menu-icon"><i class="fas fa-users"></i></span><span>Users</span></a></li>
+            <li class="menu-item">
+                <a href="#pagesSubmenu" class="menu-link" data-bs-toggle="collapse" aria-expanded="true"><span class="menu-icon"><i class="fas fa-file"></i></span><span>Pages</span><span class="menu-arrow"><i class="fas fa-chevron-right"></i></span></a>
+                <ul id="pagesSubmenu" class="submenu collapse show list-unstyled">
+                    <li class="menu-item"><a href="profile.html" class="menu-link active">Profile</a></li>
+                    <li class="menu-item"><a href="settings.html" class="menu-link">Settings</a></li>
+                </ul>
+            </li>
+            <li class="menu-label">Authentication</li>
+            <li class="menu-item">
+                <a href="#authSubmenu" class="menu-link" data-bs-toggle="collapse" aria-expanded="false"><span class="menu-icon"><i class="fas fa-lock"></i></span><span>Auth</span><span class="menu-arrow"><i class="fas fa-chevron-right"></i></span></a>
+                <ul id="authSubmenu" class="submenu collapse list-unstyled">
+                    <li class="menu-item"><a href="../auth/login.html" class="menu-link">Login</a></li>
+                    <li class="menu-item"><a href="../auth/register.html" class="menu-link">Register</a></li>
+                    <li class="menu-item"><a href="../auth/forgot-password.html" class="menu-link">Forgot Password</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <div class="sidebar-footer">
+        <div class="user-info">
+            <img src="https://ui-avatars.com/api/?name=Admin+User&background=7c3aed&color=fff&rounded=true&size=38" alt="User" class="user-avatar">
+            <div><div class="user-name">Admin User</div><div class="user-role">Administrator</div></div>
+        </div>
+    </div>
+</aside>
+
+<!-- MAIN -->
+<main class="nx-main">
+    <nav class="nx-navbar">
+        <div class="navbar-left">
+            <button class="sidebar-toggle"><i class="fas fa-bars"></i></button>
+            <h4 class="page-title mb-0 d-none d-md-block">Profile</h4>
+        </div>
+        <div class="navbar-right">
+            <div class="dropdown">
+                <div class="user-dropdown" data-bs-toggle="dropdown">
+                    <img src="https://ui-avatars.com/api/?name=Admin+User&background=7c3aed&color=fff&rounded=true&size=36" alt="User">
+                    <div class="user-info-text d-none d-md-block"><div class="user-name">Admin User</div><div class="user-role">Administrator</div></div>
+                </div>
+                <div class="dropdown-menu dropdown-menu-end">
+                    <a href="profile.html" class="dropdown-item"><i class="fas fa-user text-purple"></i> My Profile</a>
+                    <a href="settings.html" class="dropdown-item"><i class="fas fa-cog text-purple"></i> Settings</a>
+                    <div class="dropdown-divider"></div>
+                    <a href="../auth/login.html" class="dropdown-item text-danger"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="nx-content">
+        <div class="nx-breadcrumb">
+            <a href="../index.html"><i class="fas fa-home"></i></a>
+            <span class="separator"><i class="fas fa-chevron-right"></i></span>
+            <a href="#">Pages</a>
+            <span class="separator"><i class="fas fa-chevron-right"></i></span>
+            <span>Profile</span>
+        </div>
+
+        <!-- Profile Header -->
+        <div class="profile-header mb-4">
+            <div class="d-flex align-items-center flex-wrap gap-4">
+                <img src="https://ui-avatars.com/api/?name=Admin+User&background=a78bfa&color=fff&rounded=true&size=100&bold=true&font-size=0.4" alt="Profile" class="profile-avatar-lg">
+                <div>
+                    <h3 class="fw-bold mb-1">Admin User</h3>
+                    <p class="mb-1 opacity-75"><i class="fas fa-briefcase me-1"></i> Full Stack Developer</p>
+                    <p class="mb-0 opacity-50"><i class="fas fa-map-marker-alt me-1"></i> San Francisco, CA</p>
+                </div>
+                <div class="ms-auto d-none d-md-flex gap-3">
+                    <div class="text-center">
+                        <h4 class="fw-bold mb-0">256</h4>
+                        <small class="opacity-75">Projects</small>
+                    </div>
+                    <div class="text-center">
+                        <h4 class="fw-bold mb-0">1.2K</h4>
+                        <small class="opacity-75">Followers</small>
+                    </div>
+                    <div class="text-center">
+                        <h4 class="fw-bold mb-0">348</h4>
+                        <small class="opacity-75">Following</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Profile Tabs -->
+        <ul class="nav nx-tabs mb-4" role="tablist">
+            <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#personalInfo">Personal Info</a></li>
+            <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#changePassword">Change Password</a></li>
+            <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#activityLog">Activity Log</a></li>
+        </ul>
+
+        <div class="tab-content">
+            <!-- Personal Info Tab -->
+            <div class="tab-pane fade show active" id="personalInfo">
+                <div class="row g-3">
+                    <div class="col-lg-8">
+                        <div class="nx-card">
+                            <div class="card-header">
+                                <h5 class="card-title">Personal Information</h5>
+                            </div>
+                            <div class="card-body">
+                                <form class="nx-form" id="profileForm">
+                                    <div class="row g-3">
+                                        <div class="col-md-6">
+                                            <label class="form-label">First Name</label>
+                                            <input type="text" class="form-control" value="Admin">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">Last Name</label>
+                                            <input type="text" class="form-control" value="User">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">Email</label>
+                                            <input type="email" class="form-control" value="admin@nexora.com">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">Phone</label>
+                                            <input type="tel" class="form-control" value="+1 (555) 123-4567">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">Job Title</label>
+                                            <input type="text" class="form-control" value="Full Stack Developer">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">Location</label>
+                                            <input type="text" class="form-control" value="San Francisco, CA">
+                                        </div>
+                                        <div class="col-12">
+                                            <label class="form-label">Bio</label>
+                                            <textarea class="form-control" rows="3">Passionate developer with 8+ years of experience building web applications and leading teams.</textarea>
+                                        </div>
+                                        <div class="col-12">
+                                            <button type="button" class="btn btn-nx-primary" id="saveProfileBtn">
+                                                <i class="fas fa-save me-1"></i> Save Changes
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="nx-card mb-3">
+                            <div class="card-header">
+                                <h5 class="card-title">Profile Photo</h5>
+                            </div>
+                            <div class="card-body text-center">
+                                <img src="https://ui-avatars.com/api/?name=Admin+User&background=7c3aed&color=fff&rounded=true&size=120&bold=true" alt="Avatar" class="mb-3" style="width:120px;height:120px;border-radius:20px;">
+                                <form action="/upload" class="dropzone" id="avatarDropzone" style="min-height:100px;">
+                                    <div class="dz-message">
+                                        <i class="fas fa-camera fa-2x text-purple mb-2"></i>
+                                        <p class="mb-0" style="font-size:13px;">Drop photo or click</p>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="nx-card">
+                            <div class="card-header">
+                                <h5 class="card-title">Social Links</h5>
+                            </div>
+                            <div class="card-body">
+                                <form class="nx-form">
+                                    <div class="mb-3">
+                                        <div class="input-group">
+                                            <span class="input-group-text"><i class="fab fa-github"></i></span>
+                                            <input type="text" class="form-control" value="github.com/admin" placeholder="GitHub">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <div class="input-group">
+                                            <span class="input-group-text"><i class="fab fa-twitter"></i></span>
+                                            <input type="text" class="form-control" value="twitter.com/admin" placeholder="Twitter">
+                                        </div>
+                                    </div>
+                                    <div class="mb-0">
+                                        <div class="input-group">
+                                            <span class="input-group-text"><i class="fab fa-linkedin"></i></span>
+                                            <input type="text" class="form-control" value="linkedin.com/in/admin" placeholder="LinkedIn">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Change Password Tab -->
+            <div class="tab-pane fade" id="changePassword">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="nx-card">
+                            <div class="card-header">
+                                <h5 class="card-title">Change Password</h5>
+                            </div>
+                            <div class="card-body">
+                                <form class="nx-form" id="passwordForm">
+                                    <div class="mb-3">
+                                        <label class="form-label">Current Password</label>
+                                        <input type="password" class="form-control" placeholder="Enter current password">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">New Password</label>
+                                        <input type="password" class="form-control" placeholder="Enter new password">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Confirm New Password</label>
+                                        <input type="password" class="form-control" placeholder="Confirm new password">
+                                    </div>
+                                    <button type="button" class="btn btn-nx-primary" id="changePasswordBtn">
+                                        <i class="fas fa-key me-1"></i> Update Password
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Activity Log Tab -->
+            <div class="tab-pane fade" id="activityLog">
+                <div class="nx-card">
+                    <div class="card-header">
+                        <h5 class="card-title">Recent Activity</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="activity-timeline">
+                            <div class="activity-item">
+                                <div class="activity-title">Updated profile information</div>
+                                <div class="activity-time">Today, 2:30 PM</div>
+                            </div>
+                            <div class="activity-item success">
+                                <div class="activity-title">Completed project <span class="text-purple fw-semibold">Nexora Dashboard</span></div>
+                                <div class="activity-time">Yesterday, 4:15 PM</div>
+                            </div>
+                            <div class="activity-item warning">
+                                <div class="activity-title">Changed password</div>
+                                <div class="activity-time">Jan 28, 2026 - 10:00 AM</div>
+                            </div>
+                            <div class="activity-item info">
+                                <div class="activity-title">Added new team member - <span class="fw-semibold">Sara Ahmed</span></div>
+                                <div class="activity-time">Jan 25, 2026 - 3:45 PM</div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-title">Logged in from new device (MacBook Pro)</div>
+                                <div class="activity-time">Jan 22, 2026 - 9:15 AM</div>
+                            </div>
+                            <div class="activity-item danger">
+                                <div class="activity-title">Failed login attempt from unknown IP</div>
+                                <div class="activity-time">Jan 20, 2026 - 11:30 PM</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="nx-footer">
+        <span>&copy; 2026 <a href="#">Nexora</a>. All rights reserved.</span>
+        <span>Crafted with <i class="fas fa-heart text-danger"></i></span>
+    </footer>
+</main>
+
+<script src="../assets/plugins/jquery/jquery.min.js"></script>
+<script src="../assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/plugins/dropzone/js/dropzone.min.js"></script>
+<script src="../assets/plugins/toastr/js/toastr.min.js"></script>
+<script src="../assets/js/main.js"></script>
+<script>
+    $(document).ready(function () {
+        // Dropzone for avatar
+        Dropzone.autoDiscover = false;
+        if ($('#avatarDropzone').length) {
+            new Dropzone('#avatarDropzone', {
+                url: '/upload',
+                maxFiles: 1,
+                acceptedFiles: '.jpg,.jpeg,.png',
+                maxFilesize: 2,
+                addRemoveLinks: true
+            });
+        }
+        // Save profile
+        $('#saveProfileBtn').on('click', function () {
+            toastr.success('Profile updated successfully!', 'Success');
+        });
+        // Change password
+        $('#changePasswordBtn').on('click', function () {
+            toastr.success('Password changed successfully!', 'Success');
+        });
+    });
+</script>
+
+</body>
+</html>

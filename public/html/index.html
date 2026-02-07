@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexora - Dashboard</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="assets/plugins/fontawesome/css/all.min.css">
+    <!-- ApexCharts CSS -->
+    <link rel="stylesheet" href="assets/plugins/apexcharts/css/apexcharts.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+
+<!-- Preloader -->
+<div id="preloader">
+    <div class="preloader-spinner"></div>
+</div>
+
+<!-- Sidebar Overlay (mobile) -->
+<div class="sidebar-overlay"></div>
+
+<!-- ============ SIDEBAR ============ -->
+<aside class="nx-sidebar">
+    <!-- Sidebar Header -->
+    <div class="sidebar-header">
+        <a href="index.html" class="sidebar-logo">
+            <span class="logo-icon"><i class="fas fa-bolt"></i></span>
+            <span>Nexora</span>
+        </a>
+        <button class="sidebar-close"><i class="fas fa-times"></i></button>
+    </div>
+
+    <!-- Sidebar Search -->
+    <div class="sidebar-search">
+        <div class="position-relative">
+            <i class="fas fa-search search-icon"></i>
+            <input type="text" class="form-control" placeholder="Search menu...">
+        </div>
+    </div>
+
+    <!-- Sidebar Menu -->
+    <nav class="sidebar-menu">
+        <ul class="list-unstyled">
+            <li class="menu-label">Main</li>
+
+            <li class="menu-item">
+                <a href="index.html" class="menu-link active">
+                    <span class="menu-icon"><i class="fas fa-home"></i></span>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+
+            <li class="menu-label">Apps</li>
+
+            <li class="menu-item">
+                <a href="pages/tables.html" class="menu-link">
+                    <span class="menu-icon"><i class="fas fa-table"></i></span>
+                    <span>Tables</span>
+                    <span class="badge bg-primary rounded-pill">New</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="pages/forms.html" class="menu-link">
+                    <span class="menu-icon"><i class="fas fa-edit"></i></span>
+                    <span>Forms</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="pages/charts.html" class="menu-link">
+                    <span class="menu-icon"><i class="fas fa-chart-bar"></i></span>
+                    <span>Charts</span>
+                </a>
+            </li>
+
+            <li class="menu-label">Management</li>
+
+            <li class="menu-item">
+                <a href="pages/users.html" class="menu-link">
+                    <span class="menu-icon"><i class="fas fa-users"></i></span>
+                    <span>Users</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="#pagesSubmenu" class="menu-link" data-bs-toggle="collapse" aria-expanded="false">
+                    <span class="menu-icon"><i class="fas fa-file"></i></span>
+                    <span>Pages</span>
+                    <span class="menu-arrow"><i class="fas fa-chevron-right"></i></span>
+                </a>
+                <ul id="pagesSubmenu" class="submenu collapse list-unstyled">
+                    <li class="menu-item">
+                        <a href="pages/profile.html" class="menu-link">Profile</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="pages/settings.html" class="menu-link">Settings</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="menu-label">Authentication</li>
+
+            <li class="menu-item">
+                <a href="#authSubmenu" class="menu-link" data-bs-toggle="collapse" aria-expanded="false">
+                    <span class="menu-icon"><i class="fas fa-lock"></i></span>
+                    <span>Auth</span>
+                    <span class="menu-arrow"><i class="fas fa-chevron-right"></i></span>
+                </a>
+                <ul id="authSubmenu" class="submenu collapse list-unstyled">
+                    <li class="menu-item">
+                        <a href="auth/login.html" class="menu-link">Login</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="auth/register.html" class="menu-link">Register</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="auth/forgot-password.html" class="menu-link">Forgot Password</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Sidebar Footer -->
+    <div class="sidebar-footer">
+        <div class="user-info">
+            <img src="https://ui-avatars.com/api/?name=Admin+User&background=7c3aed&color=fff&rounded=true&size=38" alt="User" class="user-avatar">
+            <div>
+                <div class="user-name">Admin User</div>
+                <div class="user-role">Administrator</div>
+            </div>
+        </div>
+    </div>
+</aside>
+
+<!-- ============ MAIN CONTENT ============ -->
+<main class="nx-main">
+
+    <!-- Navbar -->
+    <nav class="nx-navbar">
+        <div class="navbar-left">
+            <button class="sidebar-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <h4 class="page-title mb-0 d-none d-md-block">Dashboard</h4>
+        </div>
+
+        <div class="navbar-search d-none d-lg-block">
+            <div class="position-relative">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" class="form-control" placeholder="Search anything...">
+            </div>
+        </div>
+
+        <div class="navbar-right">
+            <!-- Notifications -->
+            <div class="dropdown">
+                <button class="nav-icon-btn" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="far fa-bell"></i>
+                    <span class="badge-dot"></span>
+                </button>
+                <div class="dropdown-menu dropdown-menu-end" style="width: 320px;">
+                    <h6 class="dropdown-header">Notifications <span class="badge bg-primary rounded-pill ms-2">3</span></h6>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item notification-item">
+                        <div class="item-icon bg-purple-light text-purple" style="width:32px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:8px;">
+                            <i class="fas fa-user-plus"></i>
+                        </div>
+                        <div>
+                            <div class="fw-semibold">New user registered</div>
+                            <small class="text-muted">2 min ago</small>
+                        </div>
+                    </a>
+                    <a href="#" class="dropdown-item notification-item">
+                        <div class="item-icon" style="width:32px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:8px;background:#d1fae5;color:#10b981;">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <div>
+                            <div class="fw-semibold">Task completed</div>
+                            <small class="text-muted">15 min ago</small>
+                        </div>
+                    </a>
+                    <a href="#" class="dropdown-item notification-item">
+                        <div class="item-icon" style="width:32px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:8px;background:#fee2e2;color:#ef4444;">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <div>
+                            <div class="fw-semibold">Server alert</div>
+                            <small class="text-muted">1 hour ago</small>
+                        </div>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item text-center text-purple fw-semibold">View all notifications</a>
+                </div>
+            </div>
+
+            <!-- Messages -->
+            <div class="dropdown">
+                <button class="nav-icon-btn" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="far fa-envelope"></i>
+                    <span class="badge-dot"></span>
+                </button>
+                <div class="dropdown-menu dropdown-menu-end" style="width: 320px;">
+                    <h6 class="dropdown-header">Messages <span class="badge bg-primary rounded-pill ms-2">2</span></h6>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item notification-item">
+                        <img src="https://ui-avatars.com/api/?name=Sarah+K&background=ec4899&color=fff&size=32&rounded=true" alt="" style="width:32px;height:32px;border-radius:50%;">
+                        <div>
+                            <div class="fw-semibold">Sarah K.</div>
+                            <small class="text-muted">Can we schedule a meeting?</small>
+                        </div>
+                    </a>
+                    <a href="#" class="dropdown-item notification-item">
+                        <img src="https://ui-avatars.com/api/?name=John+D&background=3b82f6&color=fff&size=32&rounded=true" alt="" style="width:32px;height:32px;border-radius:50%;">
+                        <div>
+                            <div class="fw-semibold">John D.</div>
+                            <small class="text-muted">The report is ready for review.</small>
+                        </div>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item text-center text-purple fw-semibold">View all messages</a>
+                </div>
+            </div>
+
+            <!-- Fullscreen -->
+            <button class="nav-icon-btn d-none d-md-flex" id="fullscreenBtn">
+                <i class="fas fa-expand"></i>
+            </button>
+
+            <!-- User Dropdown -->
+            <div class="dropdown">
+                <div class="user-dropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="https://ui-avatars.com/api/?name=Admin+User&background=7c3aed&color=fff&rounded=true&size=36" alt="User">
+                    <div class="user-info-text d-none d-md-block">
+                        <div class="user-name">Admin User</div>
+                        <div class="user-role">Administrator</div>
+                    </div>
+                    <i class="fas fa-chevron-down ms-1" style="font-size:10px;color:var(--nx-text-muted);"></i>
+                </div>
+                <div class="dropdown-menu dropdown-menu-end">
+                    <a href="pages/profile.html" class="dropdown-item">
+                        <i class="fas fa-user text-purple"></i> My Profile
+                    </a>
+                    <a href="pages/settings.html" class="dropdown-item">
+                        <i class="fas fa-cog text-purple"></i> Settings
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="auth/login.html" class="dropdown-item text-danger">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="nx-content">
+
+        <!-- Breadcrumb -->
+        <div class="nx-breadcrumb">
+            <a href="index.html"><i class="fas fa-home"></i></a>
+            <span class="separator"><i class="fas fa-chevron-right"></i></span>
+            <span>Dashboard</span>
+        </div>
+
+        <!-- Stat Cards Row -->
+        <div class="row g-3 mb-4">
+            <div class="col-xl-3 col-sm-6">
+                <div class="stat-card">
+                    <div class="stat-icon purple">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-details">
+                        <h3>12,845</h3>
+                        <p>Total Users</p>
+                        <div class="stat-change up"><i class="fas fa-arrow-up"></i> 12.5%</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-sm-6">
+                <div class="stat-card">
+                    <div class="stat-icon green">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <div class="stat-details">
+                        <h3>$48,290</h3>
+                        <p>Total Revenue</p>
+                        <div class="stat-change up"><i class="fas fa-arrow-up"></i> 8.2%</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-sm-6">
+                <div class="stat-card">
+                    <div class="stat-icon orange">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <div class="stat-details">
+                        <h3>2,340</h3>
+                        <p>Total Orders</p>
+                        <div class="stat-change down"><i class="fas fa-arrow-down"></i> 3.1%</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-sm-6">
+                <div class="stat-card">
+                    <div class="stat-icon pink">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="stat-details">
+                        <h3>89.2%</h3>
+                        <p>Growth Rate</p>
+                        <div class="stat-change up"><i class="fas fa-arrow-up"></i> 5.7%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Charts Row -->
+        <div class="row g-3 mb-4">
+            <div class="col-xl-8">
+                <div class="nx-card">
+                    <div class="card-header">
+                        <h5 class="card-title">Revenue Overview</h5>
+                        <div class="dropdown">
+                            <button class="btn btn-sm btn-nx-secondary dropdown-toggle" data-bs-toggle="dropdown">
+                                This Year
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">This Week</a></li>
+                                <li><a class="dropdown-item" href="#">This Month</a></li>
+                                <li><a class="dropdown-item" href="#">This Year</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div id="revenueChart"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4">
+                <div class="nx-card">
+                    <div class="card-header">
+                        <h5 class="card-title">Traffic Sources</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="trafficChart"></div>
+                        <div class="mt-3">
+                            <div class="d-flex align-items-center justify-content-between mb-2">
+                                <div class="d-flex align-items-center gap-2">
+                                    <span style="width:10px;height:10px;border-radius:50%;background:#7c3aed;display:inline-block;"></span>
+                                    <span class="text-muted" style="font-size:13px;">Direct</span>
+                                </div>
+                                <span class="fw-semibold" style="font-size:13px;">35%</span>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-between mb-2">
+                                <div class="d-flex align-items-center gap-2">
+                                    <span style="width:10px;height:10px;border-radius:50%;background:#ec4899;display:inline-block;"></span>
+                                    <span class="text-muted" style="font-size:13px;">Social</span>
+                                </div>
+                                <span class="fw-semibold" style="font-size:13px;">25%</span>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-between mb-2">
+                                <div class="d-flex align-items-center gap-2">
+                                    <span style="width:10px;height:10px;border-radius:50%;background:#3b82f6;display:inline-block;"></span>
+                                    <span class="text-muted" style="font-size:13px;">Organic</span>
+                                </div>
+                                <span class="fw-semibold" style="font-size:13px;">22%</span>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div class="d-flex align-items-center gap-2">
+                                    <span style="width:10px;height:10px;border-radius:50%;background:#f59e0b;display:inline-block;"></span>
+                                    <span class="text-muted" style="font-size:13px;">Referral</span>
+                                </div>
+                                <span class="fw-semibold" style="font-size:13px;">18%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Row -->
+        <div class="row g-3">
+            <div class="col-xl-7">
+                <div class="nx-card">
+                    <div class="card-header">
+                        <h5 class="card-title">Recent Orders</h5>
+                        <a href="pages/tables.html" class="btn btn-sm btn-nx-secondary">View All</a>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table nx-table mb-0">
+                                <thead>
+                                    <tr>
+                                        <th>Order ID</th>
+                                        <th>Customer</th>
+                                        <th>Amount</th>
+                                        <th>Status</th>
+                                        <th>Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="fw-semibold">#ORD-7841</td>
+                                        <td>
+                                            <div class="user-cell">
+                                                <img src="https://ui-avatars.com/api/?name=Emma+W&background=7c3aed&color=fff&rounded=true&size=36" alt="">
+                                                <span>Emma Wilson</span>
+                                            </div>
+                                        </td>
+                                        <td>$324.00</td>
+                                        <td><span class="nx-badge success"><i class="fas fa-circle" style="font-size:6px;"></i> Completed</span></td>
+                                        <td class="text-muted">Feb 5, 2026</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-semibold">#ORD-7840</td>
+                                        <td>
+                                            <div class="user-cell">
+                                                <img src="https://ui-avatars.com/api/?name=James+K&background=ec4899&color=fff&rounded=true&size=36" alt="">
+                                                <span>James Kim</span>
+                                            </div>
+                                        </td>
+                                        <td>$189.50</td>
+                                        <td><span class="nx-badge warning"><i class="fas fa-circle" style="font-size:6px;"></i> Pending</span></td>
+                                        <td class="text-muted">Feb 4, 2026</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-semibold">#ORD-7839</td>
+                                        <td>
+                                            <div class="user-cell">
+                                                <img src="https://ui-avatars.com/api/?name=Sara+A&background=3b82f6&color=fff&rounded=true&size=36" alt="">
+                                                <span>Sara Ahmed</span>
+                                            </div>
+                                        </td>
+                                        <td>$512.00</td>
+                                        <td><span class="nx-badge success"><i class="fas fa-circle" style="font-size:6px;"></i> Completed</span></td>
+                                        <td class="text-muted">Feb 3, 2026</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-semibold">#ORD-7838</td>
+                                        <td>
+                                            <div class="user-cell">
+                                                <img src="https://ui-avatars.com/api/?name=Mike+J&background=10b981&color=fff&rounded=true&size=36" alt="">
+                                                <span>Mike Johnson</span>
+                                            </div>
+                                        </td>
+                                        <td>$78.90</td>
+                                        <td><span class="nx-badge danger"><i class="fas fa-circle" style="font-size:6px;"></i> Cancelled</span></td>
+                                        <td class="text-muted">Feb 2, 2026</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-semibold">#ORD-7837</td>
+                                        <td>
+                                            <div class="user-cell">
+                                                <img src="https://ui-avatars.com/api/?name=Lisa+P&background=f59e0b&color=fff&rounded=true&size=36" alt="">
+                                                <span>Lisa Parker</span>
+                                            </div>
+                                        </td>
+                                        <td>$256.30</td>
+                                        <td><span class="nx-badge info"><i class="fas fa-circle" style="font-size:6px;"></i> Shipping</span></td>
+                                        <td class="text-muted">Feb 1, 2026</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-5">
+                <div class="nx-card">
+                    <div class="card-header">
+                        <h5 class="card-title">Recent Activity</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="activity-timeline">
+                            <div class="activity-item">
+                                <div class="activity-title">New user registered - <span class="text-purple">Emma Wilson</span></div>
+                                <div class="activity-time">2 minutes ago</div>
+                            </div>
+                            <div class="activity-item success">
+                                <div class="activity-title">Order <span class="fw-semibold">#ORD-7841</span> completed</div>
+                                <div class="activity-time">15 minutes ago</div>
+                            </div>
+                            <div class="activity-item warning">
+                                <div class="activity-title">Payment pending for <span class="fw-semibold">#ORD-7840</span></div>
+                                <div class="activity-time">1 hour ago</div>
+                            </div>
+                            <div class="activity-item danger">
+                                <div class="activity-title">Server CPU usage above <span class="text-danger fw-semibold">90%</span></div>
+                                <div class="activity-time">2 hours ago</div>
+                            </div>
+                            <div class="activity-item info">
+                                <div class="activity-title">System backup completed successfully</div>
+                                <div class="activity-time">3 hours ago</div>
+                            </div>
+                            <div class="activity-item success">
+                                <div class="activity-title">New product added - <span class="text-purple">Premium Plan</span></div>
+                                <div class="activity-time">5 hours ago</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="nx-footer">
+        <span>&copy; 2026 <a href="#">Nexora</a>. All rights reserved.</span>
+        <span>Crafted with <i class="fas fa-heart text-danger"></i></span>
+    </footer>
+
+</main>
+
+<!-- jQuery -->
+<script src="assets/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- ApexCharts -->
+<script src="assets/plugins/apexcharts/js/apexcharts.min.js"></script>
+<!-- Main JS -->
+<script src="assets/js/main.js"></script>
+<!-- Dashboard JS -->
+<script src="assets/js/pages/dashboard.js"></script>
+
+<!-- Fullscreen Toggle -->
+<script>
+    document.getElementById('fullscreenBtn').addEventListener('click', function() {
+        if (!document.fullscreenElement) {
+            document.documentElement.requestFullscreen();
+            this.innerHTML = '<i class="fas fa-compress"></i>';
+        } else {
+            document.exitFullscreen();
+            this.innerHTML = '<i class="fas fa-expand"></i>';
+        }
+    });
+</script>
+
+</body>
+</html>

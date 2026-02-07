@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexora - Users Management</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/plugins/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../assets/plugins/datatables/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="../assets/plugins/sweetalert2/css/sweetalert2.min.css">
+    <link rel="stylesheet" href="../assets/plugins/toastr/css/toastr.min.css">
+    <link rel="stylesheet" href="../assets/plugins/select2/css/select2.min.css">
+    <link rel="stylesheet" href="../assets/plugins/select2/css/select2-bootstrap-5-theme.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
+</head>
+<body>
+
+<div id="preloader"><div class="preloader-spinner"></div></div>
+<div class="sidebar-overlay"></div>
+
+<!-- SIDEBAR -->
+<aside class="nx-sidebar">
+    <div class="sidebar-header">
+        <a href="../index.html" class="sidebar-logo"><span class="logo-icon"><i class="fas fa-bolt"></i></span><span>Nexora</span></a>
+        <button class="sidebar-close"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="sidebar-search"><div class="position-relative"><i class="fas fa-search search-icon"></i><input type="text" class="form-control" placeholder="Search menu..."></div></div>
+    <nav class="sidebar-menu">
+        <ul class="list-unstyled">
+            <li class="menu-label">Main</li>
+            <li class="menu-item"><a href="../index.html" class="menu-link"><span class="menu-icon"><i class="fas fa-home"></i></span><span>Dashboard</span></a></li>
+            <li class="menu-label">Apps</li>
+            <li class="menu-item"><a href="tables.html" class="menu-link"><span class="menu-icon"><i class="fas fa-table"></i></span><span>Tables</span></a></li>
+            <li class="menu-item"><a href="forms.html" class="menu-link"><span class="menu-icon"><i class="fas fa-edit"></i></span><span>Forms</span></a></li>
+            <li class="menu-item"><a href="charts.html" class="menu-link"><span class="menu-icon"><i class="fas fa-chart-bar"></i></span><span>Charts</span></a></li>
+            <li class="menu-label">Management</li>
+            <li class="menu-item"><a href="users.html" class="menu-link active"><span class="menu-icon"><i class="fas fa-users"></i></span><span>Users</span></a></li>
+            <li class="menu-item">
+                <a href="#pagesSubmenu" class="menu-link" data-bs-toggle="collapse" aria-expanded="false"><span class="menu-icon"><i class="fas fa-file"></i></span><span>Pages</span><span class="menu-arrow"><i class="fas fa-chevron-right"></i></span></a>
+                <ul id="pagesSubmenu" class="submenu collapse list-unstyled">
+                    <li class="menu-item"><a href="profile.html" class="menu-link">Profile</a></li>
+                    <li class="menu-item"><a href="settings.html" class="menu-link">Settings</a></li>
+                </ul>
+            </li>
+            <li class="menu-label">Authentication</li>
+            <li class="menu-item">
+                <a href="#authSubmenu" class="menu-link" data-bs-toggle="collapse" aria-expanded="false"><span class="menu-icon"><i class="fas fa-lock"></i></span><span>Auth</span><span class="menu-arrow"><i class="fas fa-chevron-right"></i></span></a>
+                <ul id="authSubmenu" class="submenu collapse list-unstyled">
+                    <li class="menu-item"><a href="../auth/login.html" class="menu-link">Login</a></li>
+                    <li class="menu-item"><a href="../auth/register.html" class="menu-link">Register</a></li>
+                    <li class="menu-item"><a href="../auth/forgot-password.html" class="menu-link">Forgot Password</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <div class="sidebar-footer">
+        <div class="user-info">
+            <img src="https://ui-avatars.com/api/?name=Admin+User&background=7c3aed&color=fff&rounded=true&size=38" alt="User" class="user-avatar">
+            <div><div class="user-name">Admin User</div><div class="user-role">Administrator</div></div>
+        </div>
+    </div>
+</aside>
+
+<!-- MAIN -->
+<main class="nx-main">
+    <nav class="nx-navbar">
+        <div class="navbar-left">
+            <button class="sidebar-toggle"><i class="fas fa-bars"></i></button>
+            <h4 class="page-title mb-0 d-none d-md-block">Users Management</h4>
+        </div>
+        <div class="navbar-right">
+            <div class="dropdown">
+                <div class="user-dropdown" data-bs-toggle="dropdown">
+                    <img src="https://ui-avatars.com/api/?name=Admin+User&background=7c3aed&color=fff&rounded=true&size=36" alt="User">
+                    <div class="user-info-text d-none d-md-block"><div class="user-name">Admin User</div><div class="user-role">Administrator</div></div>
+                </div>
+                <div class="dropdown-menu dropdown-menu-end">
+                    <a href="profile.html" class="dropdown-item"><i class="fas fa-user text-purple"></i> My Profile</a>
+                    <a href="settings.html" class="dropdown-item"><i class="fas fa-cog text-purple"></i> Settings</a>
+                    <div class="dropdown-divider"></div>
+                    <a href="../auth/login.html" class="dropdown-item text-danger"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="nx-content">
+        <div class="nx-breadcrumb">
+            <a href="../index.html"><i class="fas fa-home"></i></a>
+            <span class="separator"><i class="fas fa-chevron-right"></i></span>
+            <span>Users</span>
+        </div>
+
+        <!-- Stats Row -->
+        <div class="row g-3 mb-4">
+            <div class="col-xl-3 col-sm-6">
+                <div class="stat-card">
+                    <div class="stat-icon purple"><i class="fas fa-users"></i></div>
+                    <div class="stat-details"><h3>2,845</h3><p>Total Users</p></div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-sm-6">
+                <div class="stat-card">
+                    <div class="stat-icon green"><i class="fas fa-user-check"></i></div>
+                    <div class="stat-details"><h3>2,120</h3><p>Active Users</p></div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-sm-6">
+                <div class="stat-card">
+                    <div class="stat-icon orange"><i class="fas fa-user-clock"></i></div>
+                    <div class="stat-details"><h3>480</h3><p>Pending Users</p></div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-sm-6">
+                <div class="stat-card">
+                    <div class="stat-icon red"><i class="fas fa-user-slash"></i></div>
+                    <div class="stat-details"><h3>245</h3><p>Inactive Users</p></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Users Table -->
+        <div class="nx-card">
+            <div class="card-header">
+                <h5 class="card-title">All Users</h5>
+                <button class="btn btn-nx-primary" data-bs-toggle="modal" data-bs-target="#addUserModal">
+                    <i class="fas fa-plus me-1"></i> Add User
+                </button>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table id="usersTable" class="table nx-table" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>User</th>
+                                <th>Email</th>
+                                <th>Role</th>
+                                <th>Status</th>
+                                <th>Joined</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><div class="user-cell"><img src="https://ui-avatars.com/api/?name=Emma+Wilson&background=7c3aed&color=fff&rounded=true&size=36" alt=""><div><div class="fw-semibold">Emma Wilson</div><small class="text-muted">@emma_w</small></div></div></td>
+                                <td>emma@example.com</td>
+                                <td><span class="nx-badge primary">Admin</span></td>
+                                <td><span class="nx-badge success">Active</span></td>
+                                <td>Jan 15, 2026</td>
+                                <td>
+                                    <button class="btn btn-sm btn-nx-secondary me-1 btn-edit" data-bs-toggle="modal" data-bs-target="#editUserModal"><i class="fas fa-edit"></i></button>
+                                    <button class="btn btn-sm btn-outline-danger btn-delete"><i class="fas fa-trash-alt"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><div class="user-cell"><img src="https://ui-avatars.com/api/?name=James+Kim&background=ec4899&color=fff&rounded=true&size=36" alt=""><div><div class="fw-semibold">James Kim</div><small class="text-muted">@james_k</small></div></div></td>
+                                <td>james@example.com</td>
+                                <td><span class="nx-badge info">Editor</span></td>
+                                <td><span class="nx-badge success">Active</span></td>
+                                <td>Jan 20, 2026</td>
+                                <td>
+                                    <button class="btn btn-sm btn-nx-secondary me-1 btn-edit" data-bs-toggle="modal" data-bs-target="#editUserModal"><i class="fas fa-edit"></i></button>
+                                    <button class="btn btn-sm btn-outline-danger btn-delete"><i class="fas fa-trash-alt"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><div class="user-cell"><img src="https://ui-avatars.com/api/?name=Sara+Ahmed&background=3b82f6&color=fff&rounded=true&size=36" alt=""><div><div class="fw-semibold">Sara Ahmed</div><small class="text-muted">@sara_a</small></div></div></td>
+                                <td>sara@example.com</td>
+                                <td><span class="nx-badge warning">Moderator</span></td>
+                                <td><span class="nx-badge warning">Pending</span></td>
+                                <td>Feb 1, 2026</td>
+                                <td>
+                                    <button class="btn btn-sm btn-nx-secondary me-1 btn-edit" data-bs-toggle="modal" data-bs-target="#editUserModal"><i class="fas fa-edit"></i></button>
+                                    <button class="btn btn-sm btn-outline-danger btn-delete"><i class="fas fa-trash-alt"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><div class="user-cell"><img src="https://ui-avatars.com/api/?name=Mike+Johnson&background=10b981&color=fff&rounded=true&size=36" alt=""><div><div class="fw-semibold">Mike Johnson</div><small class="text-muted">@mike_j</small></div></div></td>
+                                <td>mike@example.com</td>
+                                <td><span class="nx-badge success">User</span></td>
+                                <td><span class="nx-badge success">Active</span></td>
+                                <td>Feb 3, 2026</td>
+                                <td>
+                                    <button class="btn btn-sm btn-nx-secondary me-1 btn-edit" data-bs-toggle="modal" data-bs-target="#editUserModal"><i class="fas fa-edit"></i></button>
+                                    <button class="btn btn-sm btn-outline-danger btn-delete"><i class="fas fa-trash-alt"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><div class="user-cell"><img src="https://ui-avatars.com/api/?name=Lisa+Parker&background=f59e0b&color=fff&rounded=true&size=36" alt=""><div><div class="fw-semibold">Lisa Parker</div><small class="text-muted">@lisa_p</small></div></div></td>
+                                <td>lisa@example.com</td>
+                                <td><span class="nx-badge info">Editor</span></td>
+                                <td><span class="nx-badge danger">Inactive</span></td>
+                                <td>Jan 8, 2026</td>
+                                <td>
+                                    <button class="btn btn-sm btn-nx-secondary me-1 btn-edit" data-bs-toggle="modal" data-bs-target="#editUserModal"><i class="fas fa-edit"></i></button>
+                                    <button class="btn btn-sm btn-outline-danger btn-delete"><i class="fas fa-trash-alt"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><div class="user-cell"><img src="https://ui-avatars.com/api/?name=Alex+Turner&background=ef4444&color=fff&rounded=true&size=36" alt=""><div><div class="fw-semibold">Alex Turner</div><small class="text-muted">@alex_t</small></div></div></td>
+                                <td>alex@example.com</td>
+                                <td><span class="nx-badge success">User</span></td>
+                                <td><span class="nx-badge success">Active</span></td>
+                                <td>Jan 25, 2026</td>
+                                <td>
+                                    <button class="btn btn-sm btn-nx-secondary me-1 btn-edit" data-bs-toggle="modal" data-bs-target="#editUserModal"><i class="fas fa-edit"></i></button>
+                                    <button class="btn btn-sm btn-outline-danger btn-delete"><i class="fas fa-trash-alt"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><div class="user-cell"><img src="https://ui-avatars.com/api/?name=Olivia+Brown&background=8b5cf6&color=fff&rounded=true&size=36" alt=""><div><div class="fw-semibold">Olivia Brown</div><small class="text-muted">@olivia_b</small></div></div></td>
+                                <td>olivia@example.com</td>
+                                <td><span class="nx-badge primary">Admin</span></td>
+                                <td><span class="nx-badge success">Active</span></td>
+                                <td>Dec 12, 2025</td>
+                                <td>
+                                    <button class="btn btn-sm btn-nx-secondary me-1 btn-edit" data-bs-toggle="modal" data-bs-target="#editUserModal"><i class="fas fa-edit"></i></button>
+                                    <button class="btn btn-sm btn-outline-danger btn-delete"><i class="fas fa-trash-alt"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><div class="user-cell"><img src="https://ui-avatars.com/api/?name=David+Lee&background=06b6d4&color=fff&rounded=true&size=36" alt=""><div><div class="fw-semibold">David Lee</div><small class="text-muted">@david_l</small></div></div></td>
+                                <td>david@example.com</td>
+                                <td><span class="nx-badge warning">Moderator</span></td>
+                                <td><span class="nx-badge warning">Pending</span></td>
+                                <td>Feb 5, 2026</td>
+                                <td>
+                                    <button class="btn btn-sm btn-nx-secondary me-1 btn-edit" data-bs-toggle="modal" data-bs-target="#editUserModal"><i class="fas fa-edit"></i></button>
+                                    <button class="btn btn-sm btn-outline-danger btn-delete"><i class="fas fa-trash-alt"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="nx-footer">
+        <span>&copy; 2026 <a href="#">Nexora</a>. All rights reserved.</span>
+        <span>Crafted with <i class="fas fa-heart text-danger"></i></span>
+    </footer>
+</main>
+
+<!-- Add User Modal -->
+<div class="modal fade" id="addUserModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" style="border-radius: var(--nx-radius); border: none;">
+            <div class="modal-header" style="border-bottom: 1px solid var(--nx-border);">
+                <h5 class="modal-title fw-semibold">Add New User</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form class="nx-form" id="addUserForm">
+                    <div class="mb-3">
+                        <label class="form-label">Full Name</label>
+                        <input type="text" class="form-control" placeholder="Enter full name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Email Address</label>
+                        <input type="email" class="form-control" placeholder="Enter email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Role</label>
+                        <select class="form-select select2-modal" style="width:100%;">
+                            <option value="admin">Admin</option>
+                            <option value="editor">Editor</option>
+                            <option value="moderator">Moderator</option>
+                            <option value="user" selected>User</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Password</label>
+                        <input type="password" class="form-control" placeholder="Enter password" required>
+                    </div>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="activeSwitch" checked>
+                        <label class="form-check-label" for="activeSwitch">Active</label>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer" style="border-top: 1px solid var(--nx-border);">
+                <button type="button" class="btn btn-nx-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-nx-primary" id="saveUserBtn">
+                    <i class="fas fa-save me-1"></i> Save User
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Edit User Modal -->
+<div class="modal fade" id="editUserModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" style="border-radius: var(--nx-radius); border: none;">
+            <div class="modal-header" style="border-bottom: 1px solid var(--nx-border);">
+                <h5 class="modal-title fw-semibold">Edit User</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form class="nx-form" id="editUserForm">
+                    <div class="mb-3">
+                        <label class="form-label">Full Name</label>
+                        <input type="text" class="form-control" value="Emma Wilson">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Email Address</label>
+                        <input type="email" class="form-control" value="emma@example.com">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Role</label>
+                        <select class="form-select">
+                            <option value="admin" selected>Admin</option>
+                            <option value="editor">Editor</option>
+                            <option value="moderator">Moderator</option>
+                            <option value="user">User</option>
+                        </select>
+                    </div>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="editActiveSwitch" checked>
+                        <label class="form-check-label" for="editActiveSwitch">Active</label>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer" style="border-top: 1px solid var(--nx-border);">
+                <button type="button" class="btn btn-nx-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-nx-primary" id="updateUserBtn">
+                    <i class="fas fa-save me-1"></i> Update User
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="../assets/plugins/jquery/jquery.min.js"></script>
+<script src="../assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/plugins/datatables/js/jquery.dataTables.min.js"></script>
+<script src="../assets/plugins/datatables/js/dataTables.bootstrap5.min.js"></script>
+<script src="../assets/plugins/sweetalert2/js/sweetalert2.min.js"></script>
+<script src="../assets/plugins/toastr/js/toastr.min.js"></script>
+<script src="../assets/plugins/select2/js/select2.min.js"></script>
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/pages/users.js"></script>
+
+</body>
+</html>

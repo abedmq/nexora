@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexora - Forms</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/plugins/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../assets/plugins/select2/css/select2.min.css">
+    <link rel="stylesheet" href="../assets/plugins/select2/css/select2-bootstrap-5-theme.min.css">
+    <link rel="stylesheet" href="../assets/plugins/jquery-ui/css/jquery-ui.min.css">
+    <link rel="stylesheet" href="../assets/plugins/dropzone/css/dropzone.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
+</head>
+<body>
+
+<div id="preloader"><div class="preloader-spinner"></div></div>
+<div class="sidebar-overlay"></div>
+
+<!-- SIDEBAR -->
+<aside class="nx-sidebar">
+    <div class="sidebar-header">
+        <a href="../index.html" class="sidebar-logo">
+            <span class="logo-icon"><i class="fas fa-bolt"></i></span><span>Nexora</span>
+        </a>
+        <button class="sidebar-close"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="sidebar-search"><div class="position-relative"><i class="fas fa-search search-icon"></i><input type="text" class="form-control" placeholder="Search menu..."></div></div>
+    <nav class="sidebar-menu">
+        <ul class="list-unstyled">
+            <li class="menu-label">Main</li>
+            <li class="menu-item"><a href="../index.html" class="menu-link"><span class="menu-icon"><i class="fas fa-home"></i></span><span>Dashboard</span></a></li>
+            <li class="menu-label">Apps</li>
+            <li class="menu-item"><a href="tables.html" class="menu-link"><span class="menu-icon"><i class="fas fa-table"></i></span><span>Tables</span></a></li>
+            <li class="menu-item"><a href="forms.html" class="menu-link active"><span class="menu-icon"><i class="fas fa-edit"></i></span><span>Forms</span></a></li>
+            <li class="menu-item"><a href="charts.html" class="menu-link"><span class="menu-icon"><i class="fas fa-chart-bar"></i></span><span>Charts</span></a></li>
+            <li class="menu-label">Management</li>
+            <li class="menu-item"><a href="users.html" class="menu-link"><span class="menu-icon"><i class="fas fa-users"></i></span><span>Users</span></a></li>
+            <li class="menu-item">
+                <a href="#pagesSubmenu" class="menu-link" data-bs-toggle="collapse" aria-expanded="false"><span class="menu-icon"><i class="fas fa-file"></i></span><span>Pages</span><span class="menu-arrow"><i class="fas fa-chevron-right"></i></span></a>
+                <ul id="pagesSubmenu" class="submenu collapse list-unstyled">
+                    <li class="menu-item"><a href="profile.html" class="menu-link">Profile</a></li>
+                    <li class="menu-item"><a href="settings.html" class="menu-link">Settings</a></li>
+                </ul>
+            </li>
+            <li class="menu-label">Authentication</li>
+            <li class="menu-item">
+                <a href="#authSubmenu" class="menu-link" data-bs-toggle="collapse" aria-expanded="false"><span class="menu-icon"><i class="fas fa-lock"></i></span><span>Auth</span><span class="menu-arrow"><i class="fas fa-chevron-right"></i></span></a>
+                <ul id="authSubmenu" class="submenu collapse list-unstyled">
+                    <li class="menu-item"><a href="../auth/login.html" class="menu-link">Login</a></li>
+                    <li class="menu-item"><a href="../auth/register.html" class="menu-link">Register</a></li>
+                    <li class="menu-item"><a href="../auth/forgot-password.html" class="menu-link">Forgot Password</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <div class="sidebar-footer">
+        <div class="user-info">
+            <img src="https://ui-avatars.com/api/?name=Admin+User&background=7c3aed&color=fff&rounded=true&size=38" alt="User" class="user-avatar">
+            <div><div class="user-name">Admin User</div><div class="user-role">Administrator</div></div>
+        </div>
+    </div>
+</aside>
+
+<!-- MAIN -->
+<main class="nx-main">
+    <nav class="nx-navbar">
+        <div class="navbar-left">
+            <button class="sidebar-toggle"><i class="fas fa-bars"></i></button>
+            <h4 class="page-title mb-0 d-none d-md-block">Forms</h4>
+        </div>
+        <div class="navbar-right">
+            <div class="dropdown">
+                <div class="user-dropdown" data-bs-toggle="dropdown">
+                    <img src="https://ui-avatars.com/api/?name=Admin+User&background=7c3aed&color=fff&rounded=true&size=36" alt="User">
+                    <div class="user-info-text d-none d-md-block"><div class="user-name">Admin User</div><div class="user-role">Administrator</div></div>
+                </div>
+                <div class="dropdown-menu dropdown-menu-end">
+                    <a href="profile.html" class="dropdown-item"><i class="fas fa-user text-purple"></i> My Profile</a>
+                    <a href="settings.html" class="dropdown-item"><i class="fas fa-cog text-purple"></i> Settings</a>
+                    <div class="dropdown-divider"></div>
+                    <a href="../auth/login.html" class="dropdown-item text-danger"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="nx-content">
+        <div class="nx-breadcrumb">
+            <a href="../index.html"><i class="fas fa-home"></i></a>
+            <span class="separator"><i class="fas fa-chevron-right"></i></span>
+            <span>Forms</span>
+        </div>
+
+        <div class="row g-3">
+            <!-- Basic Form -->
+            <div class="col-lg-6">
+                <div class="nx-card">
+                    <div class="card-header">
+                        <h5 class="card-title">Basic Form</h5>
+                    </div>
+                    <div class="card-body">
+                        <form id="basicForm" class="nx-form" novalidate>
+                            <div class="mb-3">
+                                <label class="form-label">Full Name <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" name="fullname" placeholder="Enter full name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Email Address <span class="text-danger">*</span></label>
+                                <input type="email" class="form-control" name="email" placeholder="Enter email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Phone Number</label>
+                                <input type="tel" class="form-control" name="phone" placeholder="Enter phone number">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Password <span class="text-danger">*</span></label>
+                                <input type="password" class="form-control" name="password" placeholder="Enter password" required minlength="6">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Confirm Password <span class="text-danger">*</span></label>
+                                <input type="password" class="form-control" name="confirm_password" placeholder="Confirm password" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Bio</label>
+                                <textarea class="form-control" rows="3" placeholder="Tell us about yourself..."></textarea>
+                            </div>
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" id="agreeTerms" name="terms" required>
+                                <label class="form-check-label" for="agreeTerms">I agree to the <a href="#">Terms & Conditions</a></label>
+                            </div>
+                            <button type="submit" class="btn btn-nx-primary">
+                                <i class="fas fa-paper-plane me-1"></i> Submit Form
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Advanced Form Elements -->
+            <div class="col-lg-6">
+                <div class="nx-card mb-3">
+                    <div class="card-header">
+                        <h5 class="card-title">Select2 & Date Pickers</h5>
+                    </div>
+                    <div class="card-body">
+                        <form class="nx-form">
+                            <div class="mb-3">
+                                <label class="form-label">Single Select (Select2)</label>
+                                <select class="form-select select2-single" style="width: 100%;">
+                                    <option value="">Choose an option...</option>
+                                    <option value="1">JavaScript</option>
+                                    <option value="2">Python</option>
+                                    <option value="3">PHP</option>
+                                    <option value="4">Ruby</option>
+                                    <option value="5">Java</option>
+                                    <option value="6">C++</option>
+                                    <option value="7">Go</option>
+                                    <option value="8">Rust</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Multiple Select (Select2)</label>
+                                <select class="form-select select2-multiple" multiple style="width: 100%;">
+                                    <option value="html">HTML</option>
+                                    <option value="css">CSS</option>
+                                    <option value="js">JavaScript</option>
+                                    <option value="php">PHP</option>
+                                    <option value="python">Python</option>
+                                    <option value="react">React</option>
+                                    <option value="vue">Vue.js</option>
+                                    <option value="angular">Angular</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Date Picker</label>
+                                <input type="text" class="form-control datepicker" placeholder="Select date..." readonly>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Date Range</label>
+                                <div class="row g-2">
+                                    <div class="col-6">
+                                        <input type="text" class="form-control datepicker" placeholder="Start date" readonly>
+                                    </div>
+                                    <div class="col-6">
+                                        <input type="text" class="form-control datepicker" placeholder="End date" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Toggle & Checkbox -->
+                <div class="nx-card">
+                    <div class="card-header">
+                        <h5 class="card-title">Switches & Checkboxes</h5>
+                    </div>
+                    <div class="card-body">
+                        <form class="nx-form">
+                            <div class="mb-3">
+                                <div class="form-check form-switch mb-2">
+                                    <input class="form-check-input" type="checkbox" id="switch1" checked>
+                                    <label class="form-check-label" for="switch1">Email Notifications</label>
+                                </div>
+                                <div class="form-check form-switch mb-2">
+                                    <input class="form-check-input" type="checkbox" id="switch2">
+                                    <label class="form-check-label" for="switch2">SMS Notifications</label>
+                                </div>
+                                <div class="form-check form-switch mb-2">
+                                    <input class="form-check-input" type="checkbox" id="switch3" checked>
+                                    <label class="form-check-label" for="switch3">Push Notifications</label>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="mb-0">
+                                <label class="form-label">Select Role</label>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="role" id="roleAdmin" checked>
+                                    <label class="form-check-label" for="roleAdmin">Administrator</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" name="role" id="roleEditor">
+                                    <label class="form-check-label" for="roleEditor">Editor</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="role" id="roleUser">
+                                    <label class="form-check-label" for="roleUser">User</label>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- File Upload (Dropzone) -->
+        <div class="row g-3 mt-1">
+            <div class="col-12">
+                <div class="nx-card">
+                    <div class="card-header">
+                        <h5 class="card-title">File Upload (Dropzone)</h5>
+                    </div>
+                    <div class="card-body">
+                        <form action="/upload" class="dropzone" id="fileDropzone">
+                            <div class="dz-message">
+                                <i class="fas fa-cloud-upload-alt fa-3x text-purple mb-3"></i>
+                                <h5>Drop files here or click to upload</h5>
+                                <p class="text-muted mb-0">Supports: JPG, PNG, GIF, PDF (Max 5MB)</p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Form Wizard -->
+        <div class="row g-3 mt-1">
+            <div class="col-12">
+                <div class="nx-card">
+                    <div class="card-header">
+                        <h5 class="card-title">Multi-Step Form Wizard</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-wizard">
+                            <!-- Steps -->
+                            <div class="wizard-steps mb-4">
+                                <div class="wizard-step active" data-step="1">
+                                    <span class="step-number">1</span>
+                                    <span class="d-none d-sm-inline">Personal Info</span>
+                                </div>
+                                <div class="wizard-step" data-step="2">
+                                    <span class="step-number">2</span>
+                                    <span class="d-none d-sm-inline">Account Details</span>
+                                </div>
+                                <div class="wizard-step" data-step="3">
+                                    <span class="step-number">3</span>
+                                    <span class="d-none d-sm-inline">Confirmation</span>
+                                </div>
+                            </div>
+
+                            <!-- Step Content -->
+                            <div class="wizard-content">
+                                <div class="wizard-panel active" id="step1">
+                                    <form class="nx-form">
+                                        <div class="row g-3">
+                                            <div class="col-md-6">
+                                                <label class="form-label">First Name</label>
+                                                <input type="text" class="form-control" placeholder="First name">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label">Last Name</label>
+                                                <input type="text" class="form-control" placeholder="Last name">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label">Email</label>
+                                                <input type="email" class="form-control" placeholder="Email">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label">Phone</label>
+                                                <input type="tel" class="form-control" placeholder="Phone">
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="wizard-panel" id="step2" style="display:none;">
+                                    <form class="nx-form">
+                                        <div class="row g-3">
+                                            <div class="col-md-6">
+                                                <label class="form-label">Username</label>
+                                                <input type="text" class="form-control" placeholder="Username">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label">Password</label>
+                                                <input type="password" class="form-control" placeholder="Password">
+                                            </div>
+                                            <div class="col-12">
+                                                <label class="form-label">Role</label>
+                                                <select class="form-select select2-single" style="width: 100%;">
+                                                    <option>Admin</option>
+                                                    <option>Editor</option>
+                                                    <option>User</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="wizard-panel" id="step3" style="display:none;">
+                                    <div class="text-center py-4">
+                                        <i class="fas fa-check-circle fa-4x text-success mb-3"></i>
+                                        <h4>All Done!</h4>
+                                        <p class="text-muted">Review your information and click submit to complete the process.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Navigation Buttons -->
+                            <div class="d-flex justify-content-between mt-4">
+                                <button type="button" class="btn btn-nx-secondary" id="wizardPrev" disabled>
+                                    <i class="fas fa-arrow-left me-1"></i> Previous
+                                </button>
+                                <button type="button" class="btn btn-nx-primary" id="wizardNext">
+                                    Next <i class="fas fa-arrow-right ms-1"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="nx-footer">
+        <span>&copy; 2026 <a href="#">Nexora</a>. All rights reserved.</span>
+        <span>Crafted with <i class="fas fa-heart text-danger"></i></span>
+    </footer>
+</main>
+
+<script src="../assets/plugins/jquery/jquery.min.js"></script>
+<script src="../assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/plugins/select2/js/select2.min.js"></script>
+<script src="../assets/plugins/jquery-ui/js/jquery-ui.min.js"></script>
+<script src="../assets/plugins/jquery-validation/js/jquery.validate.min.js"></script>
+<script src="../assets/plugins/jquery-validation/js/additional-methods.min.js"></script>
+<script src="../assets/plugins/dropzone/js/dropzone.min.js"></script>
+<script src="../assets/plugins/toastr/js/toastr.min.js"></script>
+<link rel="stylesheet" href="../assets/plugins/toastr/css/toastr.min.css">
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/pages/forms.js"></script>
+
+</body>
+</html>

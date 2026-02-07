@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexora - Tables</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/plugins/fontawesome/css/all.min.css">
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" href="../assets/plugins/datatables/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="../assets/plugins/datatables/css/buttons.bootstrap5.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
+</head>
+<body>
+
+<div id="preloader"><div class="preloader-spinner"></div></div>
+<div class="sidebar-overlay"></div>
+
+<!-- SIDEBAR -->
+<aside class="nx-sidebar">
+    <div class="sidebar-header">
+        <a href="../index.html" class="sidebar-logo">
+            <span class="logo-icon"><i class="fas fa-bolt"></i></span>
+            <span>Nexora</span>
+        </a>
+        <button class="sidebar-close"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="sidebar-search">
+        <div class="position-relative">
+            <i class="fas fa-search search-icon"></i>
+            <input type="text" class="form-control" placeholder="Search menu...">
+        </div>
+    </div>
+    <nav class="sidebar-menu">
+        <ul class="list-unstyled">
+            <li class="menu-label">Main</li>
+            <li class="menu-item"><a href="../index.html" class="menu-link"><span class="menu-icon"><i class="fas fa-home"></i></span><span>Dashboard</span></a></li>
+            <li class="menu-label">Apps</li>
+            <li class="menu-item"><a href="tables.html" class="menu-link active"><span class="menu-icon"><i class="fas fa-table"></i></span><span>Tables</span></a></li>
+            <li class="menu-item"><a href="forms.html" class="menu-link"><span class="menu-icon"><i class="fas fa-edit"></i></span><span>Forms</span></a></li>
+            <li class="menu-item"><a href="charts.html" class="menu-link"><span class="menu-icon"><i class="fas fa-chart-bar"></i></span><span>Charts</span></a></li>
+            <li class="menu-label">Management</li>
+            <li class="menu-item"><a href="users.html" class="menu-link"><span class="menu-icon"><i class="fas fa-users"></i></span><span>Users</span></a></li>
+            <li class="menu-item">
+                <a href="#pagesSubmenu" class="menu-link" data-bs-toggle="collapse" aria-expanded="false">
+                    <span class="menu-icon"><i class="fas fa-file"></i></span><span>Pages</span>
+                    <span class="menu-arrow"><i class="fas fa-chevron-right"></i></span>
+                </a>
+                <ul id="pagesSubmenu" class="submenu collapse list-unstyled">
+                    <li class="menu-item"><a href="profile.html" class="menu-link">Profile</a></li>
+                    <li class="menu-item"><a href="settings.html" class="menu-link">Settings</a></li>
+                </ul>
+            </li>
+            <li class="menu-label">Authentication</li>
+            <li class="menu-item">
+                <a href="#authSubmenu" class="menu-link" data-bs-toggle="collapse" aria-expanded="false">
+                    <span class="menu-icon"><i class="fas fa-lock"></i></span><span>Auth</span>
+                    <span class="menu-arrow"><i class="fas fa-chevron-right"></i></span>
+                </a>
+                <ul id="authSubmenu" class="submenu collapse list-unstyled">
+                    <li class="menu-item"><a href="../auth/login.html" class="menu-link">Login</a></li>
+                    <li class="menu-item"><a href="../auth/register.html" class="menu-link">Register</a></li>
+                    <li class="menu-item"><a href="../auth/forgot-password.html" class="menu-link">Forgot Password</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <div class="sidebar-footer">
+        <div class="user-info">
+            <img src="https://ui-avatars.com/api/?name=Admin+User&background=7c3aed&color=fff&rounded=true&size=38" alt="User" class="user-avatar">
+            <div><div class="user-name">Admin User</div><div class="user-role">Administrator</div></div>
+        </div>
+    </div>
+</aside>
+
+<!-- MAIN -->
+<main class="nx-main">
+    <nav class="nx-navbar">
+        <div class="navbar-left">
+            <button class="sidebar-toggle"><i class="fas fa-bars"></i></button>
+            <h4 class="page-title mb-0 d-none d-md-block">Tables</h4>
+        </div>
+        <div class="navbar-right">
+            <div class="dropdown">
+                <div class="user-dropdown" data-bs-toggle="dropdown">
+                    <img src="https://ui-avatars.com/api/?name=Admin+User&background=7c3aed&color=fff&rounded=true&size=36" alt="User">
+                    <div class="user-info-text d-none d-md-block">
+                        <div class="user-name">Admin User</div>
+                        <div class="user-role">Administrator</div>
+                    </div>
+                </div>
+                <div class="dropdown-menu dropdown-menu-end">
+                    <a href="profile.html" class="dropdown-item"><i class="fas fa-user text-purple"></i> My Profile</a>
+                    <a href="settings.html" class="dropdown-item"><i class="fas fa-cog text-purple"></i> Settings</a>
+                    <div class="dropdown-divider"></div>
+                    <a href="../auth/login.html" class="dropdown-item text-danger"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="nx-content">
+        <div class="nx-breadcrumb">
+            <a href="../index.html"><i class="fas fa-home"></i></a>
+            <span class="separator"><i class="fas fa-chevron-right"></i></span>
+            <span>Tables</span>
+        </div>
+
+        <!-- Basic Table -->
+        <div class="nx-card mb-4">
+            <div class="card-header">
+                <h5 class="card-title">Basic Table</h5>
+            </div>
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table class="table nx-table mb-0">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Role</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td><div class="user-cell"><img src="https://ui-avatars.com/api/?name=John+D&background=7c3aed&color=fff&rounded=true&size=36" alt=""><span>John Doe</span></div></td>
+                                <td>john@example.com</td>
+                                <td>Admin</td>
+                                <td><span class="nx-badge success">Active</span></td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td><div class="user-cell"><img src="https://ui-avatars.com/api/?name=Jane+S&background=ec4899&color=fff&rounded=true&size=36" alt=""><span>Jane Smith</span></div></td>
+                                <td>jane@example.com</td>
+                                <td>Editor</td>
+                                <td><span class="nx-badge success">Active</span></td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td><div class="user-cell"><img src="https://ui-avatars.com/api/?name=Bob+J&background=3b82f6&color=fff&rounded=true&size=36" alt=""><span>Bob Johnson</span></div></td>
+                                <td>bob@example.com</td>
+                                <td>User</td>
+                                <td><span class="nx-badge warning">Pending</span></td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td><div class="user-cell"><img src="https://ui-avatars.com/api/?name=Alice+W&background=f59e0b&color=fff&rounded=true&size=36" alt=""><span>Alice Williams</span></div></td>
+                                <td>alice@example.com</td>
+                                <td>Moderator</td>
+                                <td><span class="nx-badge danger">Inactive</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Advanced DataTable -->
+        <div class="nx-card">
+            <div class="card-header">
+                <h5 class="card-title">Advanced DataTable</h5>
+                <span class="text-muted" style="font-size:12px;">With search, sort, pagination & export</span>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table id="advancedTable" class="table nx-table" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Position</th>
+                                <th>Office</th>
+                                <th>Age</th>
+                                <th>Start Date</th>
+                                <th>Salary</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>1</td><td>Tiger Nixon</td><td>System Architect</td><td>Edinburgh</td><td>61</td><td>2011/04/25</td><td>$320,800</td><td><span class="nx-badge success">Active</span></td></tr>
+                            <tr><td>2</td><td>Garrett Winters</td><td>Accountant</td><td>Tokyo</td><td>63</td><td>2011/07/25</td><td>$170,750</td><td><span class="nx-badge success">Active</span></td></tr>
+                            <tr><td>3</td><td>Ashton Cox</td><td>Junior Dev</td><td>San Francisco</td><td>66</td><td>2009/01/12</td><td>$86,000</td><td><span class="nx-badge warning">Pending</span></td></tr>
+                            <tr><td>4</td><td>Cedric Kelly</td><td>Senior Developer</td><td>Edinburgh</td><td>22</td><td>2012/03/29</td><td>$433,060</td><td><span class="nx-badge success">Active</span></td></tr>
+                            <tr><td>5</td><td>Airi Satou</td><td>Accountant</td><td>Tokyo</td><td>33</td><td>2008/11/28</td><td>$162,700</td><td><span class="nx-badge danger">Inactive</span></td></tr>
+                            <tr><td>6</td><td>Brielle Williamson</td><td>Integration Lead</td><td>New York</td><td>61</td><td>2012/12/02</td><td>$372,000</td><td><span class="nx-badge success">Active</span></td></tr>
+                            <tr><td>7</td><td>Herrod Chandler</td><td>Sales Assistant</td><td>San Francisco</td><td>59</td><td>2012/08/06</td><td>$137,500</td><td><span class="nx-badge warning">Pending</span></td></tr>
+                            <tr><td>8</td><td>Rhona Davidson</td><td>Integration Lead</td><td>Tokyo</td><td>55</td><td>2010/10/14</td><td>$327,900</td><td><span class="nx-badge success">Active</span></td></tr>
+                            <tr><td>9</td><td>Colleen Hurst</td><td>JavaScript Dev</td><td>San Francisco</td><td>39</td><td>2009/09/15</td><td>$205,500</td><td><span class="nx-badge success">Active</span></td></tr>
+                            <tr><td>10</td><td>Sonya Frost</td><td>Software Engineer</td><td>Edinburgh</td><td>23</td><td>2008/12/13</td><td>$103,600</td><td><span class="nx-badge danger">Inactive</span></td></tr>
+                            <tr><td>11</td><td>Jena Gaines</td><td>Office Manager</td><td>London</td><td>30</td><td>2008/12/19</td><td>$90,560</td><td><span class="nx-badge success">Active</span></td></tr>
+                            <tr><td>12</td><td>Quinn Flynn</td><td>Support Lead</td><td>Edinburgh</td><td>22</td><td>2013/03/03</td><td>$342,000</td><td><span class="nx-badge success">Active</span></td></tr>
+                            <tr><td>13</td><td>Charde Marshall</td><td>Regional Director</td><td>San Francisco</td><td>36</td><td>2008/10/16</td><td>$470,600</td><td><span class="nx-badge warning">Pending</span></td></tr>
+                            <tr><td>14</td><td>Haley Kennedy</td><td>Senior Marketing</td><td>London</td><td>43</td><td>2012/12/18</td><td>$313,500</td><td><span class="nx-badge success">Active</span></td></tr>
+                            <tr><td>15</td><td>Tatyana Fitzpatrick</td><td>Regional Director</td><td>London</td><td>19</td><td>2010/03/17</td><td>$385,750</td><td><span class="nx-badge success">Active</span></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="nx-footer">
+        <span>&copy; 2026 <a href="#">Nexora</a>. All rights reserved.</span>
+        <span>Crafted with <i class="fas fa-heart text-danger"></i></span>
+    </footer>
+</main>
+
+<script src="../assets/plugins/jquery/jquery.min.js"></script>
+<script src="../assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- DataTables -->
+<script src="../assets/plugins/datatables/js/jquery.dataTables.min.js"></script>
+<script src="../assets/plugins/datatables/js/dataTables.bootstrap5.min.js"></script>
+<script src="../assets/plugins/datatables/js/dataTables.buttons.min.js"></script>
+<script src="../assets/plugins/datatables/js/buttons.bootstrap5.min.js"></script>
+<script src="../assets/plugins/datatables/js/jszip.min.js"></script>
+<script src="../assets/plugins/datatables/js/pdfmake.min.js"></script>
+<script src="../assets/plugins/datatables/js/vfs_fonts.js"></script>
+<script src="../assets/plugins/datatables/js/buttons.html5.min.js"></script>
+<script src="../assets/plugins/datatables/js/buttons.print.min.js"></script>
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/pages/tables.js"></script>
+
+</body>
+</html>

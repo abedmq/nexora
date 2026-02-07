@@ -1,0 +1,147 @@
+/* ============================================
+   Nexora Admin Dashboard - Responsive Styles
+   ============================================ */
+
+/* ---- Large Screens (< 1200px) ---- */
+@media (max-width: 1199.98px) {
+    .nx-navbar .navbar-search {
+        width: 220px;
+    }
+}
+
+/* ---- Tablets (< 992px) ---- */
+@media (max-width: 991.98px) {
+    .nx-sidebar {
+        transform: translateX(-100%);
+    }
+
+    .nx-sidebar.show {
+        transform: translateX(0);
+    }
+
+    .nx-sidebar .sidebar-close {
+        display: block;
+    }
+
+    .nx-main {
+        margin-left: 0;
+    }
+
+    .nx-navbar .navbar-search {
+        display: none;
+    }
+
+    .sidebar-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1039;
+    }
+
+    .sidebar-overlay.show {
+        display: block;
+    }
+
+    .stat-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .nx-footer {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+    }
+}
+
+/* ---- Mobile (< 768px) ---- */
+@media (max-width: 767.98px) {
+    .nx-content {
+        padding: 16px;
+    }
+
+    .nx-navbar {
+        padding: 0 16px;
+    }
+
+    .nx-navbar .user-dropdown .user-info-text {
+        display: none;
+    }
+
+    .nx-card .card-header {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+    }
+
+    .stat-card {
+        flex-direction: row;
+        text-align: left;
+    }
+
+    .stat-card .stat-icon {
+        width: 44px;
+        height: 44px;
+        font-size: 18px;
+    }
+
+    .stat-card .stat-details h3 {
+        font-size: 20px;
+    }
+
+    .profile-header {
+        text-align: center;
+    }
+
+    .auth-card {
+        padding: 24px;
+    }
+
+    .form-wizard .wizard-steps {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* DataTables responsive */
+    .dataTables_wrapper .dataTables_filter,
+    .dataTables_wrapper .dataTables_length {
+        text-align: left !important;
+        margin-bottom: 10px;
+    }
+
+    .dataTables_wrapper .dataTables_info,
+    .dataTables_wrapper .dataTables_paginate {
+        text-align: center !important;
+        margin-top: 10px;
+    }
+
+    .table-responsive {
+        overflow-x: auto;
+    }
+}
+
+/* ---- Small Mobile (< 576px) ---- */
+@media (max-width: 575.98px) {
+    .nx-content {
+        padding: 12px;
+    }
+
+    .nx-card .card-body {
+        padding: 16px;
+    }
+
+    .nx-breadcrumb {
+        font-size: 12px;
+    }
+
+    .btn-nx-primary,
+    .btn-nx-secondary,
+    .btn-nx-outline {
+        padding: 6px 14px;
+        font-size: 12px;
+    }
+}

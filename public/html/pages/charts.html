@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexora - Charts</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/plugins/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../assets/plugins/apexcharts/css/apexcharts.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
+</head>
+<body>
+
+<div id="preloader"><div class="preloader-spinner"></div></div>
+<div class="sidebar-overlay"></div>
+
+<!-- SIDEBAR -->
+<aside class="nx-sidebar">
+    <div class="sidebar-header">
+        <a href="../index.html" class="sidebar-logo"><span class="logo-icon"><i class="fas fa-bolt"></i></span><span>Nexora</span></a>
+        <button class="sidebar-close"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="sidebar-search"><div class="position-relative"><i class="fas fa-search search-icon"></i><input type="text" class="form-control" placeholder="Search menu..."></div></div>
+    <nav class="sidebar-menu">
+        <ul class="list-unstyled">
+            <li class="menu-label">Main</li>
+            <li class="menu-item"><a href="../index.html" class="menu-link"><span class="menu-icon"><i class="fas fa-home"></i></span><span>Dashboard</span></a></li>
+            <li class="menu-label">Apps</li>
+            <li class="menu-item"><a href="tables.html" class="menu-link"><span class="menu-icon"><i class="fas fa-table"></i></span><span>Tables</span></a></li>
+            <li class="menu-item"><a href="forms.html" class="menu-link"><span class="menu-icon"><i class="fas fa-edit"></i></span><span>Forms</span></a></li>
+            <li class="menu-item"><a href="charts.html" class="menu-link active"><span class="menu-icon"><i class="fas fa-chart-bar"></i></span><span>Charts</span></a></li>
+            <li class="menu-label">Management</li>
+            <li class="menu-item"><a href="users.html" class="menu-link"><span class="menu-icon"><i class="fas fa-users"></i></span><span>Users</span></a></li>
+            <li class="menu-item">
+                <a href="#pagesSubmenu" class="menu-link" data-bs-toggle="collapse" aria-expanded="false"><span class="menu-icon"><i class="fas fa-file"></i></span><span>Pages</span><span class="menu-arrow"><i class="fas fa-chevron-right"></i></span></a>
+                <ul id="pagesSubmenu" class="submenu collapse list-unstyled">
+                    <li class="menu-item"><a href="profile.html" class="menu-link">Profile</a></li>
+                    <li class="menu-item"><a href="settings.html" class="menu-link">Settings</a></li>
+                </ul>
+            </li>
+            <li class="menu-label">Authentication</li>
+            <li class="menu-item">
+                <a href="#authSubmenu" class="menu-link" data-bs-toggle="collapse" aria-expanded="false"><span class="menu-icon"><i class="fas fa-lock"></i></span><span>Auth</span><span class="menu-arrow"><i class="fas fa-chevron-right"></i></span></a>
+                <ul id="authSubmenu" class="submenu collapse list-unstyled">
+                    <li class="menu-item"><a href="../auth/login.html" class="menu-link">Login</a></li>
+                    <li class="menu-item"><a href="../auth/register.html" class="menu-link">Register</a></li>
+                    <li class="menu-item"><a href="../auth/forgot-password.html" class="menu-link">Forgot Password</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <div class="sidebar-footer">
+        <div class="user-info">
+            <img src="https://ui-avatars.com/api/?name=Admin+User&background=7c3aed&color=fff&rounded=true&size=38" alt="User" class="user-avatar">
+            <div><div class="user-name">Admin User</div><div class="user-role">Administrator</div></div>
+        </div>
+    </div>
+</aside>
+
+<!-- MAIN -->
+<main class="nx-main">
+    <nav class="nx-navbar">
+        <div class="navbar-left">
+            <button class="sidebar-toggle"><i class="fas fa-bars"></i></button>
+            <h4 class="page-title mb-0 d-none d-md-block">Charts</h4>
+        </div>
+        <div class="navbar-right">
+            <div class="dropdown">
+                <div class="user-dropdown" data-bs-toggle="dropdown">
+                    <img src="https://ui-avatars.com/api/?name=Admin+User&background=7c3aed&color=fff&rounded=true&size=36" alt="User">
+                    <div class="user-info-text d-none d-md-block"><div class="user-name">Admin User</div><div class="user-role">Administrator</div></div>
+                </div>
+                <div class="dropdown-menu dropdown-menu-end">
+                    <a href="profile.html" class="dropdown-item"><i class="fas fa-user text-purple"></i> My Profile</a>
+                    <a href="settings.html" class="dropdown-item"><i class="fas fa-cog text-purple"></i> Settings</a>
+                    <div class="dropdown-divider"></div>
+                    <a href="../auth/login.html" class="dropdown-item text-danger"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="nx-content">
+        <div class="nx-breadcrumb">
+            <a href="../index.html"><i class="fas fa-home"></i></a>
+            <span class="separator"><i class="fas fa-chevron-right"></i></span>
+            <span>Charts</span>
+        </div>
+
+        <!-- ApexCharts Row -->
+        <div class="row g-3 mb-4">
+            <div class="col-lg-6">
+                <div class="nx-card">
+                    <div class="card-header"><h5 class="card-title">Line Chart</h5></div>
+                    <div class="card-body"><div id="lineChart"></div></div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="nx-card">
+                    <div class="card-header"><h5 class="card-title">Bar Chart</h5></div>
+                    <div class="card-body"><div id="barChart"></div></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-3 mb-4">
+            <div class="col-lg-6">
+                <div class="nx-card">
+                    <div class="card-header"><h5 class="card-title">Area Chart</h5></div>
+                    <div class="card-body"><div id="areaChart"></div></div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="nx-card">
+                    <div class="card-header"><h5 class="card-title">Donut Chart</h5></div>
+                    <div class="card-body"><div id="donutChart"></div></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chart.js Row -->
+        <div class="row g-3 mb-4">
+            <div class="col-lg-6">
+                <div class="nx-card">
+                    <div class="card-header"><h5 class="card-title">Chart.js - Radar</h5></div>
+                    <div class="card-body">
+                        <div class="chart-container" style="max-height:350px;">
+                            <canvas id="radarChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="nx-card">
+                    <div class="card-header"><h5 class="card-title">Chart.js - Polar Area</h5></div>
+                    <div class="card-body">
+                        <div class="chart-container" style="max-height:350px;">
+                            <canvas id="polarChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mixed Chart -->
+        <div class="row g-3">
+            <div class="col-12">
+                <div class="nx-card">
+                    <div class="card-header"><h5 class="card-title">Mixed Chart (ApexCharts)</h5></div>
+                    <div class="card-body"><div id="mixedChart"></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="nx-footer">
+        <span>&copy; 2026 <a href="#">Nexora</a>. All rights reserved.</span>
+        <span>Crafted with <i class="fas fa-heart text-danger"></i></span>
+    </footer>
+</main>
+
+<script src="../assets/plugins/jquery/jquery.min.js"></script>
+<script src="../assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/plugins/apexcharts/js/apexcharts.min.js"></script>
+<script src="../assets/plugins/chartjs/js/chart.umd.min.js"></script>
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/pages/charts.js"></script>
+
+</body>
+</html>
