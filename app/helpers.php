@@ -70,3 +70,39 @@ if (!function_exists('clear_menu_cache')) {
         Cache::forget('menu_footer');
     }
 }
+
+if (!function_exists('available_themes')) {
+    /**
+     * Get the available themes configuration.
+     */
+    function available_themes(): array
+    {
+        return config('themes', []);
+    }
+}
+
+if (!function_exists('active_theme')) {
+    /**
+     * Get the current active theme slug.
+     */
+    function active_theme(): string
+    {
+        $themes = available_themes();
+        $fallback = array_key_first($themes) ?: 'nexora';
+
+        return setting('active_theme', $fallback);
+    }
+}
+
+if (!function_exists('theme_supports')) {
+    /**
+     * Check if the active theme supports a feature.
+     */
+    function theme_supports(string $feature): bool
+    {
+        $themes = available_themes();
+        $theme = active_theme();
+
+        return (bool) data_get($themes, $theme . '.supports.' . $feature, false);
+    }
+}

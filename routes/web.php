@@ -44,6 +44,9 @@ Route::prefix('admin')->group(function () {
         // Settings (الإعدادات)
         require app_path('Domains/Setting/Routes/web.php');
 
+        // Themes (الثيمات)
+        require app_path('Domains/Theme/Routes/web.php');
+
         // Pages (الصفحات)
         require app_path('Domains/Page/Routes/web.php');
 

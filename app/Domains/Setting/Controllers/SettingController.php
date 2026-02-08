@@ -24,7 +24,27 @@ class SettingController extends Controller
     public function update(Request $request)
     {
         if ($request->has('settings')) {
-            foreach ($request->settings as $key => $value) {
+            $settingsPayload = $request->input('settings', []);
+            $themeSettingKeys = [
+                'color_palette',
+                'theme_color_primary',
+                'theme_color_dark',
+                'theme_color_light',
+                'theme_color_accent',
+                'section_divider',
+                'divider_height',
+                'divider_flip',
+            ];
+
+            if (!theme_supports('theme_settings')) {
+                $blockedKeys = array_intersect(array_keys($settingsPayload), $themeSettingKeys);
+                if (!empty($blockedKeys) || $request->hasFile('site_logo') || $request->hasFile('site_logo_dark') || $request->hasFile('site_favicon')) {
+                    return redirect()->route('admin.themes.index')
+                        ->withErrors(['theme' => 'الثيم الحالي لا يدعم إعدادات الثيم.']);
+                }
+            }
+
+            foreach ($settingsPayload as $key => $value) {
                 DB::table('settings')->updateOrInsert(
                     ['key' => $key],
                     ['value' => $value, 'updated_at' => now()]
@@ -142,6 +162,11 @@ class SettingController extends Controller
 
     public function exportDemo()
     {
+        if (!theme_supports('demo')) {
+            return redirect()->route('admin.themes.index')
+                ->withErrors(['theme' => 'الثيم الحالي لا يدعم الديمو.']);
+        }
+
         $timestamp = now()->format('Ymd_His');
         $workDir = storage_path("app/demo-exports/{$timestamp}");
         File::ensureDirectoryExists($workDir);
@@ -193,6 +218,11 @@ class SettingController extends Controller
 
     public function importDemo(Request $request)
     {
+        if (!theme_supports('demo')) {
+            return redirect()->route('admin.themes.index')
+                ->withErrors(['theme' => 'الثيم الحالي لا يدعم الديمو.']);
+        }
+
         $request->validate([
             'demo_zip' => 'nullable|file|mimes:zip|max:51200',
             'preset' => 'nullable|string',

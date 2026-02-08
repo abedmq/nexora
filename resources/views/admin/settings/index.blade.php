@@ -24,11 +24,23 @@
     </div>
     @endif
 
+    @if(!theme_supports('theme_settings') || !theme_supports('demo'))
+        <div class="alert alert-warning" style="border-radius:var(--nx-radius-sm);border:none;background:var(--nx-warning-light);color:var(--nx-warning);">
+            <i class="fas fa-info-circle me-1"></i>
+            بعض إعدادات الثيم غير متاحة للثيم الحالي. يمكنك تفعيل ثيم يدعمها من صفحة
+            <a href="{{ route('admin.themes.index') }}" class="fw-semibold text-decoration-underline">الثيمات</a>.
+        </div>
+    @endif
+
     <!-- Tabs -->
     <ul class="nav nx-tabs mb-4" role="tablist">
         <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#generalTab">الإعدادات العامة</a></li>
-        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#themeTab">إعدادات الثيم</a></li>
-        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#demoTab">الديمو</a></li>
+        @if(theme_supports('theme_settings'))
+            <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#themeTab">إعدادات الثيم</a></li>
+        @endif
+        @if(theme_supports('demo'))
+            <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#demoTab">الديمو</a></li>
+        @endif
         <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#footerTab">تصميم الفوتر</a></li>
         <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#pricingTab">الأسعار</a></li>
         <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#accountTab">الحساب</a></li>
@@ -117,9 +129,10 @@
         </div>
 
         <!-- Theme Settings -->
-        <div class="tab-pane fade" id="themeTab">
-            <form action="{{ route('admin.settings.update') }}" method="POST" enctype="multipart/form-data">
-                @csrf @method('PUT')
+        @if(theme_supports('theme_settings'))
+            <div class="tab-pane fade" id="themeTab">
+                <form action="{{ route('admin.settings.update') }}" method="POST" enctype="multipart/form-data">
+                    @csrf @method('PUT')
 
                 {{-- Logo Section --}}
                 <div class="nx-card mb-4">
@@ -332,51 +345,54 @@
                     </div>
                 </div>
 
-                <div class="mt-2 mb-4">
-                    <button type="submit" class="btn btn-nx-primary"><i class="fas fa-save me-1"></i> حفظ إعدادات الثيم</button>
-                </div>
-            </form>
-        </div>
+                    <div class="mt-2 mb-4">
+                        <button type="submit" class="btn btn-nx-primary"><i class="fas fa-save me-1"></i> حفظ إعدادات الثيم</button>
+                    </div>
+                </form>
+            </div>
+        @endif
 
         <!-- Demo Export/Import -->
-        <div class="tab-pane fade" id="demoTab">
-            <div class="nx-card mb-4">
-                <div class="card-header"><h5 class="card-title"><i class="fas fa-file-export me-1 text-purple"></i> تصدير الديمو الحالي</h5></div>
-                <div class="card-body">
-                    <p class="text-muted mb-3" style="font-size:13px;">سيتم تصدير إعدادات الثيم، تصميم الصفحة الرئيسية، وجميع الصور المرتبطة ضمن ملف ZIP.</p>
-                    <a href="{{ route('admin.settings.demo.export') }}" class="btn btn-nx-primary"><i class="fas fa-download me-1"></i> تحميل الديمو</a>
+        @if(theme_supports('demo'))
+            <div class="tab-pane fade" id="demoTab">
+                <div class="nx-card mb-4">
+                    <div class="card-header"><h5 class="card-title"><i class="fas fa-file-export me-1 text-purple"></i> تصدير الديمو الحالي</h5></div>
+                    <div class="card-body">
+                        <p class="text-muted mb-3" style="font-size:13px;">سيتم تصدير إعدادات الثيم، تصميم الصفحة الرئيسية، وجميع الصور المرتبطة ضمن ملف ZIP.</p>
+                        <a href="{{ route('admin.settings.demo.export') }}" class="btn btn-nx-primary"><i class="fas fa-download me-1"></i> تحميل الديمو</a>
+                    </div>
                 </div>
-            </div>
 
-            <div class="nx-card">
-                <div class="card-header"><h5 class="card-title"><i class="fas fa-file-import me-1 text-purple"></i> استيراد ديمو</h5></div>
-                <div class="card-body">
-                    <form action="{{ route('admin.settings.demo.import') }}" method="POST" enctype="multipart/form-data" class="nx-form">
-                        @csrf
-                        <div class="row g-3">
-                            <div class="col-md-6">
-                                <label class="form-label">استيراد من ملف مضغوط</label>
-                                <input type="file" name="demo_zip" class="form-control" accept=".zip">
-                                <small class="text-muted d-block mt-1">ملف ZIP يحتوي على demo.sql وملف الصور.</small>
+                <div class="nx-card">
+                    <div class="card-header"><h5 class="card-title"><i class="fas fa-file-import me-1 text-purple"></i> استيراد ديمو</h5></div>
+                    <div class="card-body">
+                        <form action="{{ route('admin.settings.demo.import') }}" method="POST" enctype="multipart/form-data" class="nx-form">
+                            @csrf
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label">استيراد من ملف مضغوط</label>
+                                    <input type="file" name="demo_zip" class="form-control" accept=".zip">
+                                    <small class="text-muted d-block mt-1">ملف ZIP يحتوي على demo.sql وملف الصور.</small>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">استيراد من ديمو محفوظ بالموقع</label>
+                                    <select name="preset" class="form-select">
+                                        <option value="">اختر ديمو محفوظ</option>
+                                        @foreach($demoPresets as $preset)
+                                            <option value="{{ $preset }}">{{ $preset }}</option>
+                                        @endforeach
+                                    </select>
+                                    <small class="text-muted d-block mt-1">يتم قراءة الديمو من storage/app/demos.</small>
+                                </div>
                             </div>
-                            <div class="col-md-6">
-                                <label class="form-label">استيراد من ديمو محفوظ بالموقع</label>
-                                <select name="preset" class="form-select">
-                                    <option value="">اختر ديمو محفوظ</option>
-                                    @foreach($demoPresets as $preset)
-                                        <option value="{{ $preset }}">{{ $preset }}</option>
-                                    @endforeach
-                                </select>
-                                <small class="text-muted d-block mt-1">يتم قراءة الديمو من storage/app/demos.</small>
+                            <div class="mt-4">
+                                <button type="submit" class="btn btn-nx-primary"><i class="fas fa-upload me-1"></i> استيراد الديمو</button>
                             </div>
-                        </div>
-                        <div class="mt-4">
-                            <button type="submit" class="btn btn-nx-primary"><i class="fas fa-upload me-1"></i> استيراد الديمو</button>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
+        @endif
 
         <!-- Footer Template -->
         <div class="tab-pane fade" id="footerTab">
