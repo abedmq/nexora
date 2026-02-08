@@ -80,10 +80,19 @@
                 </a>
             </li>
 
+            @if(theme_supports('homepage_builder'))
+                <li class="menu-item">
+                    <a href="{{ route('admin.website.homepage') }}" class="menu-link {{ request()->routeIs('admin.website.homepage*') ? 'active' : '' }}">
+                        <span class="menu-icon"><i class="fas fa-home"></i></span>
+                        <span>الصفحة الرئيسية</span>
+                    </a>
+                </li>
+            @endif
+
             <li class="menu-item">
-                <a href="{{ route('admin.website.homepage') }}" class="menu-link {{ request()->routeIs('admin.website.homepage*') ? 'active' : '' }}">
-                    <span class="menu-icon"><i class="fas fa-home"></i></span>
-                    <span>الصفحة الرئيسية</span>
+                <a href="{{ route('admin.themes.index') }}" class="menu-link {{ request()->routeIs('admin.themes.*') ? 'active' : '' }}">
+                    <span class="menu-icon"><i class="fas fa-palette"></i></span>
+                    <span>الثيمات</span>
                 </a>
             </li>
 

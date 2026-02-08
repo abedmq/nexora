@@ -13,14 +13,16 @@ use App\Domains\Website\Controllers\SliderItemController;
 Route::prefix('website')->name('admin.website.')->group(function () {
 
     // Homepage Builder
-    Route::get('/homepage', [HomepageController::class, 'index'])->name('homepage');
-    Route::get('/homepage/preview', [HomepageController::class, 'preview'])->name('homepage.preview');
-    Route::post('/homepage/sections', [HomepageController::class, 'storeSection'])->name('sections.store');
-    Route::post('/homepage/sections/reorder', [HomepageController::class, 'reorderSections'])->name('sections.reorder');
-    Route::get('/homepage/sections/{section}/data', [HomepageController::class, 'getSectionData'])->name('sections.data');
-    Route::put('/homepage/sections/{section}', [HomepageController::class, 'updateSection'])->name('sections.update');
-    Route::delete('/homepage/sections/{section}', [HomepageController::class, 'deleteSection'])->name('sections.destroy');
-    Route::post('/homepage/sections/{section}/toggle', [HomepageController::class, 'toggleSection'])->name('sections.toggle');
+    Route::middleware('theme.supports:homepage_builder')->group(function () {
+        Route::get('/homepage', [HomepageController::class, 'index'])->name('homepage');
+        Route::get('/homepage/preview', [HomepageController::class, 'preview'])->name('homepage.preview');
+        Route::post('/homepage/sections', [HomepageController::class, 'storeSection'])->name('sections.store');
+        Route::post('/homepage/sections/reorder', [HomepageController::class, 'reorderSections'])->name('sections.reorder');
+        Route::get('/homepage/sections/{section}/data', [HomepageController::class, 'getSectionData'])->name('sections.data');
+        Route::put('/homepage/sections/{section}', [HomepageController::class, 'updateSection'])->name('sections.update');
+        Route::delete('/homepage/sections/{section}', [HomepageController::class, 'deleteSection'])->name('sections.destroy');
+        Route::post('/homepage/sections/{section}/toggle', [HomepageController::class, 'toggleSection'])->name('sections.toggle');
+    });
 
     // Testimonials
     Route::get('/testimonials', [TestimonialController::class, 'index'])->name('testimonials');
